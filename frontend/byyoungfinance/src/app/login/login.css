@@ -1,0 +1,52 @@
+:root {
+    --pallete-color-1: #000;
+    --pallete-color-2: #071954;
+    --pallete-color-3: #1f3a93;
+    --pallete-color-4: #366ee8;
+    --pallete-color-5: #92b1f4;
+    --pallete-color-6: #dce3f2;
+    --pallete-color-7: #fff;
+    --pallete-color-8: #ffcc00;
+}
+
+
+body {
+    background-color: var(--pallete-color-6);
+}
+
+.container {
+    background-color: var(--pallete-color-7);
+    height: 80vh;
+}
+
+.input-infos {
+    background-color: var(--pallete-color-7);
+    border:solid 2px var(--pallete-color-2);
+    height: 7vh;
+    color: var(--pallete-color-1);
+}
+
+.row p{
+    color: var(--pallete-color-2);
+}
+
+.button-login{
+    background-color: var(--pallete-color-7);
+    border: solid 2px var(--pallete-color-2);
+    height: 7vh;
+    color: var(--pallete-color-2);
+    font-weight: 700;
+}
+
+.button-cadastro{
+    background-color: var(--pallete-color-2);
+    height: 7vh;
+    color: var(--pallete-color-7);
+    font-weight: 700;
+}
+
+.img-login{
+    height: 75vh;
+    width: 50vh;
+
+}
