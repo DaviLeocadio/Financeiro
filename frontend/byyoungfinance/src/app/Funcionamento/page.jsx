@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from "react-bootstrap";
+import emailjs from "emailjs-com";
 
 // Importações Swiper para Depoimentos
 import { Swiper, SwiperSlide } from "swiper/react";
