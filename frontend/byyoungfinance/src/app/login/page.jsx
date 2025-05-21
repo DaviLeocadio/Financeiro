@@ -1,51 +1,40 @@
-'use client'
+'use client';
+import { useState } from 'react';
 import './login.css';
-import { useState, useEffect } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
+import axios from 'axios';
+const API_URL = 'http://localhost:8080';
 
 export default function Login() {
-  const [captchaValue, setCaptchaValue] = useState(null);
+  const [user, setUser] = useState();
 
-  const handleCaptchaChange = (value) => {
-    console.log('Valor do Captcha:', value);
-    setCaptchaValue(value);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    if (captchaValue) {
-      // Envie o captchaValue para o seu backend para verificação
-      const response = await fetch('/api/verify-captcha', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ captchaValue }),
-      });
-      const data = await response.json();
-      if (data.success) {
-        console.log('CAPTCHA verificado com sucesso!');
-        // Continue com o envio do formulário
-      } else {
-        console.error('Falha na verificação do CAPTCHA:', data.error);
-        // Exiba uma mensagem de erro ao usuário
-      }
-    } else {
-      alert('Por favor, complete o CAPTCHA.');
+  async function login() {
+    try {
+      const response = await axios.get(`${API_URL}/login`);
+      console.log(response.data);
+      return response.data;
+    } catch {
+      console.log(`Erro ao listar jogos: `, error.mesage);
+      return [];
     }
-  };
+  }
+
   return (
     <>
-      <div className="container my-5 w-50 p-4 rounded-4 d-flex">
+      <div className="container my-5 w-75 p-4 rounded-4 d-flex">
         <div className="col-md-5 col-12">
-          <div className="row align-items-center justify-content-center d-flex">
+          <div className="row align-items-center w-100 justify-content-center d-grid">
             <h1 className="fs-2 fw-bold">Entre na sua conta</h1>
           </div>
-          <div className="row mt-5">
+          <div className="row mt-3">
             <p className="fw-bold">Nome ou Email</p>
           </div>
           <div className="row">
-            <input type="text" className="input-infos rounded-4" />
+            <input
+              type="text"
+              className="input-infos rounded-4"
+              value={user}
+              onChange={(user) => user.target.value}
+            />
           </div>
           <div className="row mt-4">
             <p className="fw-bold">Senha</p>
@@ -53,26 +42,23 @@ export default function Login() {
           <div className="row">
             <input type="password" className="input-infos rounded-4" />
           </div>
-          <div className="row">
-            <form onSubmit={handleSubmit}>
-              {/* Outros campos do formulário */}
-              <ReCAPTCHA
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                onChange={handleCaptchaChange}
-              />
-              <button type="submit">Enviar</button>
-            </form>
-          </div>
           <div className="row mt-5">
-            <button type="button" className="button-login rounded-4">
+            <button
+              type="button"
+              className="button-login rounded-4"
+              onClick={login}
+            >
               Fazer login
             </button>
           </div>
-          <div className="row align-items-center justify-content-center d-grid">
+          <div className="row d-grid mt-2 align-items-center justify-content-center">
             <p>ou</p>
           </div>
           <div className="row">
-            <button type="button" className="button-cadastro rounded-4">
+            <button
+              type="button"
+              className="button-cadastro rounded-4 border-none"
+            >
               Criar conta
             </button>
           </div>
