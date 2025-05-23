@@ -76,8 +76,16 @@ export default function Header() {
               </Link>
               <Link
                 href="/cadastro"
-                className="btn fw-semibold px-4 py-2 rounded-pill text-white"
-                style={{ backgroundColor: '#92b1f4' }} // azul claro, por exemplo
+                className="btn fw-semibold px-4 py-2 rounded-pill text-white border border-white"
+                style={{ backgroundColor: 'transparent' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'white';
+                  e.currentTarget.style.color = '#071954';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#071954';
+                }}
               >
                 Cadastro
               </Link>

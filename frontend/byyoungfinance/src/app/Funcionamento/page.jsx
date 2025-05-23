@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from "react-bootstrap";
-import emailjs from "emailjs-com";
+import './Funcionamento.css'
 
 // Importações Swiper para Depoimentos
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -83,16 +83,19 @@ export default function Home() {
       name: "Alexa Rodriguez",
       text: "Organizar meus gastos mensais com essa plataforma mudou minha relação com o dinheiro.",
       img: "PessoaUm.svg",
+      rating: 5
     },
     {
       name: "Emily Chen",
       text: "Com o sistema de metas e orçamento, consegui sair do vermelho e guardar um valor todo mês. Super intuitivo e direto!",
       img: "PessoaTres.svg",
+      rating: 4
     },
     {
       name: "James Johnson",
       text: "Ter controle financeiro ficou simples. Eu e minha família passamos a planejar melhor nossos sonhose.",
       img: "PessoaDois.svg",
+      rating: 5
     },
   ];
 
@@ -199,8 +202,8 @@ export default function Home() {
                 </h5>
                 <p style={{ color: "#333", minHeight: "60px" }}>{card.cargo}</p>
 
-                <button
-                  className="btn btn-primary rounded-pill"
+                <button style={{ backgroundColor: '#1f3a93' }}
+                  className="btn rounded-pill text-white"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleShow(card);
@@ -216,8 +219,8 @@ export default function Home() {
         <Modal show={show} onHide={handleClose} centered>
           {cardSelecionado && (
             <>
-              <Modal.Header closeButton style={{ backgroundColor: "#92b1f4" }}>
-                <Modal.Title className="fw-bold text-dark">{cardSelecionado.nome}</Modal.Title>
+              <Modal.Header closeButton style={{ backgroundColor: '#1f3a93' }}>
+                <Modal.Title className="text-white">{cardSelecionado.nome}</Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 <p style={{ color: "#333" }}>{cardSelecionado.detalhes}</p>
@@ -237,8 +240,8 @@ export default function Home() {
       <Modal show={show} onHide={handleClose} centered>
         {cardSelecionado && (
           <>
-            <Modal.Header closeButton style={{ backgroundColor: "#92b1f4" }}>
-              <Modal.Title className="fw-bold text-dark">
+            <Modal.Header closeButton style={{ backgroundColor: '#1f3a93' }}>
+              <Modal.Title className="text-white">
                 {cardSelecionado.nome}
               </Modal.Title>
             </Modal.Header>
@@ -431,6 +434,11 @@ export default function Home() {
                     className="testimonial-img"
                   />
                   <h4>{t.name}</h4>
+                  <div className="stars">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <span key={i} className={i < t.rating ? "filled" : ""}>★</span>
+                    ))}
+                  </div>
                   <p>"{t.text}"</p>
                 </div>
               </SwiperSlide>
@@ -498,57 +506,31 @@ export default function Home() {
             <h2 className="fw-bold mb-4 text-center" style={{ color: "#1e3a8a" }}>
               Fale com a gente
             </h2>
-            <form onSubmit={handleSubmit}>
+
+            <form action="https://formsubmit.co/ormellivitoria@gmail.com" method="POST">
+              <input type="hidden" name="_captcha" value="false" />
+              
+
               <div className="mb-3">
-                <label className="form-label">Nome</label>
-                <input
-                  type="text"
-                  name="nome"
-                  className="form-control"
-                  value={formData.nome}
-                  onChange={handleChange}
-                  required
-                />
+                <label className="form-label" htmlFor="nome">Nome</label>
+                <input type="text" id="nome" name="nome" className="form-control" required />
               </div>
 
               <div className="mb-3">
-                <label className="form-label">E-mail</label>
-                <input
-                  type="email"
-                  name="email"
-                  className="form-control"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
+                <label className="form-label" htmlFor="email">E-mail</label>
+                <input type="email" id="email" name="email" className="form-control" required />
               </div>
 
               <div className="mb-3">
-                <label className="form-label">Mensagem</label>
-                <textarea
-                  name="mensagem"
-                  className="form-control"
-                  rows="4"
-                  value={formData.mensagem}
-                  onChange={handleChange}
-                  required
-                ></textarea>
+                <label className="form-label" htmlFor="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" className="form-control" rows="4" required></textarea>
               </div>
 
               <div className="d-grid">
-                <button
-                  type="submit"
-                  className="btn btn-primary rounded-pill fw-semibold"
-                >
+                <button type="submit" className="btn btn-primary rounded-pill fw-semibold">
                   Enviar mensagem
                 </button>
               </div>
-
-              {enviado && (
-                <div className="alert alert-success mt-3 text-center" role="alert">
-                  Sua mensagem foi enviada com sucesso!
-                </div>
-              )}
             </form>
           </div>
         </div>
