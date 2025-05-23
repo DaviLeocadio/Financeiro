@@ -1,6 +1,32 @@
+'use client';
+import axios from 'axios';
 import './cadastro.css';
+const API_URL = 'http://localhost:8080';
+import { useState } from 'react';
 
 export default function Cadastro() {
+  const [nome, setNome] = useState();
+  const [nomeS, setNomeS] = useState();
+  const [senha, setSenha] = useState();
+  const [senhaS, setSenhaS] = useState();
+
+  async function CadastrarUsuario(CriarNome, CriarSenha) {
+    console.log(senha);
+    CriarNome = nomeS;
+    CriarSenha = senhaS;
+    try {
+      const response = await axios.post(`${API_URL}/cadastro`, {
+        nome: CriarNome,
+        senha: CriarSenha,
+      });
+
+      return response.data;
+    } catch (err) {
+      console.error('Erro ao cadastrar usuario\n', err);
+      console.log(nome);
+    }
+  }
+
   return (
     <>
       <div className="container-fluid d-flex align-items-center justify-content-center p-0">
@@ -14,6 +40,10 @@ export default function Cadastro() {
                 className="form-control rounded-4"
                 id="formGroupName"
                 placeholder="Digite seu nome completo"
+                value={nome}
+                onChange={(nome) => {
+                  setNomeS(nome.target.value);
+                }}
               />
             </div>
             <div className="mb-3">
@@ -32,6 +62,10 @@ export default function Cadastro() {
                 className="form-control rounded-4"
                 id="formGroupPassword"
                 placeholder="Criar senha"
+                value={senha}
+                onChange={(senha) => {
+                  setSenhaS(senha.target.value);
+                }}
               />
             </div>
             <div className="mb-3">
@@ -55,7 +89,10 @@ export default function Cadastro() {
               />
             </div>
             <div className="div-button-cadastrar d-flex flex-column align-items-center gap-3 mt-4">
-              <button className="button-cadastrar text-white w-100 p-3 rounded-4">
+              <button
+                className="button-cadastrar text-white w-100 p-3 rounded-4"
+                onClick={CadastrarUsuario}
+              >
                 <p className="m-0">Criar Conta</p>
               </button>
               <p className="m-0">ou</p>
@@ -76,5 +113,3 @@ export default function Cadastro() {
     </>
   );
 }
-
-
