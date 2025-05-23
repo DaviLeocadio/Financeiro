@@ -3,10 +3,10 @@ import { read, compare } from '../config/database.js';
 import { JWT_SECRET } from '../config/jwt.js';
 
 const loginController = async (req, res) => {
-  const { email, senha } = req.body;
+  const { nome, senha } = req.body;
 
   try {
-    const usuario = await read('usuario', `email = '${email}'`);
+    const usuario = await read('usuario', `nome = '${nome}'`);
 
     if (!usuario) {
       return res.status(404).json({ mensagem: 'Usuário não encontrado' });
