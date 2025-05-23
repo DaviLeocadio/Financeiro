@@ -1,0 +1,51 @@
+@import url("https://use.typekit.net/yuy5pav.css");
+
+:root {
+  --azul-escuro1: #071954;
+  --azul-escuro2: #172d78;
+  --azul-escuro3: #1f3a93;
+  --amarelo: #ffcc00;
+  --cinza: #dce3f2;
+}
+
+.form-control {
+  border: none;
+}
+form :focus {
+  box-shadow: none !important;
+}
+form :focus-visible {
+  box-shadow: none !important;
+}
+
+.btn :active {
+  border: none;
+}
+
+.div-usuario {
+  color: var(--azul-escuro2);
+}
+
+.div-usuario .bi-person-circle {
+  font-size: 3rem;
+}
+
+.container-usuario {
+  font-family: "barlow-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.3rem;
+}
+
+.extrato-usuario {
+  color: var(--azul-escuro2);
+}
+
+.div-entradas{
+  background-color: #ffffff9a;
+}
+
+.button-entradas{
+  border: var(--azul-escuro2) solid 3px;
+  color: var(--azul-escuro2);
+}

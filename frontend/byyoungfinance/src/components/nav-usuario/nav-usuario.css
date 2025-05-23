@@ -1,0 +1,46 @@
+@import url("https://use.typekit.net/yuy5pav.css");
+
+:root {
+  --azul-escuro1: #071954;
+  --azul-escuro2: #172d78;
+  --azul-escuro3: #1f3a93;
+  --amarelo: #ffcc00;
+  --cinza: #dce3f2;
+}
+
+.nav-usuario {
+  background-color: var(--azul-escuro2);
+  width: 20%;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.nav-usuario ul {
+  list-style: none;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-style: bold;
+}
+
+.nav-usuario ul li {
+  padding: 10px;
+  color: #ffffff;
+  font-family: "barlow-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.3rem;
+}
+
+.nav-usuario button {
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s;
+}
+.nav-usuario button.ativo {
+  background-color: var(--amarelo) !important;
+  padding: 10px;
+}
+.nav-usuario button:hover {
+  background-color: var(--amarelo) !important;
+  border-radius: 10rem;
+}

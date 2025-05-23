@@ -1,3 +1,5 @@
+import "@/app/Cadastro/cadastro.css"
+
 export default function Cadastro() {
   return (
     <>

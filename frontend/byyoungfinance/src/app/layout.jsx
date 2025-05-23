@@ -4,8 +4,6 @@ import "./globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-import "@/app/Cadastro/cadastro.css"
-import "@/app/usuario/usuario.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
