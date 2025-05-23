@@ -5,11 +5,19 @@ import axios from 'axios';
 const API_URL = 'http://localhost:8080';
 
 export default function Login() {
-  const [user, setUser] = useState();
+  const [nome, setNome] = useState();
+  const [nomeS, setNomeS] = useState();
+  const [senha, setSenha] = useState();
+  const [senhaS, setSenhaS] = useState();
 
-  async function login() {
+  async function login(nomeLogin, senhaLogin) {
+    nomeLogin = nomeS;
+    senhaLogin = senhaS;
     try {
-      const response = await axios.get(`${API_URL}/login`);
+      const response = await axios.get(`${API_URL}/login`, {
+        nome: nomeLogin,
+        senha: senhaLogin,
+      });
       console.log(response.data);
       return response.data;
     } catch {
@@ -32,15 +40,20 @@ export default function Login() {
             <input
               type="text"
               className="input-infos rounded-4"
-              value={user}
-              onChange={(user) => user.target.value}
+              value={nome}
+              onChange={(nome) => {
+                setNomeS(nome.target.value);
+              }}
             />
           </div>
           <div className="row mt-4">
             <p className="fw-bold">Senha</p>
           </div>
           <div className="row">
-            <input type="password" className="input-infos rounded-4" />
+            <input type="password" className="input-infos rounded-4" value={senha}
+                onChange={(senha) => {
+                  setSenhaS(senha.target.value);
+                }} />
           </div>
           <div className="row mt-5">
             <button

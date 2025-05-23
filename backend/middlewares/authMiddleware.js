@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { JWT_SECRET } from '../config/jwt.js';
+import { JWT_SECRET } from '../controllers/LoginController.js';
 
 const authMiddleware = (req, res, next) => {
   //Verifica se tem authorization no header{

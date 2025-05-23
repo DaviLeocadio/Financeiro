@@ -27,9 +27,11 @@ export default function Cadastro() {
     }
   }
 
+  
+
   return (
     <>
-      <div className="container-fluid d-flex align-items-center justify-content-center p-0">
+      <div className="container-fluid d-flex align-items-center justify-content-center p-0 mt-md-0 mt-5">
         <div className="row align-items-stretch justify-content-center bg-white p-3 p-md-4 rounded-5 m-2 m-md-4 w-75">
           <div className="forms-dados col-12 col-md-6 p-3 p-md-4">
             <h3>Crie sua conta</h3>
@@ -75,6 +77,7 @@ export default function Cadastro() {
                 className="form-control rounded-4"
                 id="formGroupCPF"
                 placeholder="000.000.000-00"
+                
               />
             </div>
             <div className="mb-3">

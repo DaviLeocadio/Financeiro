@@ -1,8 +1,9 @@
 import jwt from 'jsonwebtoken';
 import { read, compare } from '../config/database.js';
+import crypto from 'crypto';
 
 
-const loginController = async (req, res) => {
+const LoginController = async (req, res) => {
   const { nome, senha } = req.body;
 
   try {
@@ -18,6 +19,10 @@ const loginController = async (req, res) => {
       return res.status(404).json({ mensagem: 'Senha incorreta' });
     }
 
+    const token = jwt.sign({ id: usuario.id, nome: usuario.nome }, JWT_SECRET, {
+      expiresIn: '1d',
+    });
+
     res.json({ mensagem: 'Login realizado com sucesso', token });
   } catch (err) {
     console.error('Erro ao fazer login', err);
@@ -25,4 +30,10 @@ const loginController = async (req, res) => {
   }
 };
 
-export { loginController };
+function generateSecretKey() {
+  return crypto.randomBytes(64).toString('hex');
+  }
+  
+const secretKey = generateSecretKey();
+
+export { LoginController, secretKey };
