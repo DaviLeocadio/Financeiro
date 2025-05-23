@@ -66,7 +66,7 @@ export default function Cadastro() {
             <img
               className="img-fluid h-100 rounded-4"
               src="/cadastro-img.png"
-              alt="Imagem ilustrativa do cadastro"
+              alt="Imagem do cadastro"
             />
           </div>
         </div>
