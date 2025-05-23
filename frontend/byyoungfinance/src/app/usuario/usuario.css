@@ -1,0 +1,19 @@
+.nav-usuario{
+    width: 20%;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.nav-usuario ul{
+    list-style: none;
+}
+
+.form-control{
+    border: none;
+}
+.form-control :focus{
+    box-shadow: none;
+}
+.form-control :focus-visible{
+    box-shadow: none;
+}
