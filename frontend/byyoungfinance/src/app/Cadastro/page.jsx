@@ -1,8 +1,8 @@
+import './cadastro.css';
 
 export default function Cadastro() {
   return (
     <>
-
       <div className="container-fluid d-flex align-items-center justify-content-center p-0">
         <div className="row align-items-stretch justify-content-center bg-white p-3 p-md-4 rounded-5 m-2 m-md-4 w-75">
           <div className="forms-dados col-12 col-md-6 p-3 p-md-4">
@@ -12,7 +12,7 @@ export default function Cadastro() {
               <input
                 type="text"
                 className="form-control rounded-4"
-                id="formGroupName" 
+                id="formGroupName"
                 placeholder="Digite seu nome completo"
               />
             </div>
@@ -28,7 +28,7 @@ export default function Cadastro() {
             <div className="mb-3">
               <label className="form-label label-color">Senha</label>
               <input
-                type="password" 
+                type="password"
                 className="form-control rounded-4"
                 id="formGroupPassword"
                 placeholder="Criar senha"
@@ -44,7 +44,9 @@ export default function Cadastro() {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label label-color">Data de Nascimento</label>
+              <label className="form-label label-color">
+                Data de Nascimento
+              </label>
               <input
                 type="date"
                 className="form-control rounded-4"
@@ -52,17 +54,21 @@ export default function Cadastro() {
                 placeholder="DD/MM/AAAA"
               />
             </div>
-            <div className="div-button-cadastrar d-flex flex-column align-items-center gap-3 mt-4"> 
-              <button className="button-cadastrar text-white w-100 p-3 rounded-4"><p className="m-0">Criar Conta</p></button> 
+            <div className="div-button-cadastrar d-flex flex-column align-items-center gap-3 mt-4">
+              <button className="button-cadastrar text-white w-100 p-3 rounded-4">
+                <p className="m-0">Criar Conta</p>
+              </button>
               <p className="m-0">ou</p>
-              <button className="button-login w-100 p-3 rounded-4">Fazer Login</button>
+              <button className="button-login w-100 p-3 rounded-4">
+                Fazer Login
+              </button>
             </div>
           </div>
-          <div className="col-md-6 d-none d-md-flex align-items-center justify-content-center p-3 h-75">
+          <div className="col-md-6 d-none d-md-flex align-items-center justify-content-center p-3">
             <img
-              className="img-fluid rounded-4" 
-              src="https://i.pinimg.com/736x/10/37/9a/10379a1ac6565722516d428daf73d911.jpg"
-              alt="Imagem ilustrativa do cadastro" 
+              className="img-fluid h-100 rounded-4"
+              src="/cadastro-img.png"
+              alt="Imagem ilustrativa do cadastro"
             />
           </div>
         </div>
@@ -70,3 +76,5 @@ export default function Cadastro() {
     </>
   );
 }
+
+
