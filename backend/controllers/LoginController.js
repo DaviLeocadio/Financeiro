@@ -1,27 +1,32 @@
 import jwt from 'jsonwebtoken';
 import { read, compare } from '../config/database.js';
-import crypto from 'crypto';
+import { JWT_SECRET } from '../config/jwt.js';
 
 
 const LoginController = async (req, res) => {
-  const { nome, senha } = req.body;
+  const { nome, senha, email } = req.body;
 
   try {
-    const usuario = await read('usuario', `nome = '${nome}'`);
+    const usuario = await read('usuario', `nome = '${nome}' or email = '${email}'`);
 
     if (!usuario) {
+      console.log('Usuário não encontrado');
       return res.status(404).json({ mensagem: 'Usuário não encontrado' });
     }
 
     const senhaCorreta = await compare(senha, usuario.senha);
 
     if (!senhaCorreta) {
+      console.log('Senha incorreta');
       return res.status(404).json({ mensagem: 'Senha incorreta' });
     }
 
     const token = jwt.sign({ id: usuario.id, nome: usuario.nome }, JWT_SECRET, {
       expiresIn: '1d',
     });
+
+    console.log('Login realizado com sucesso');
+    console.log('Token gerado:', token);
 
     res.json({ mensagem: 'Login realizado com sucesso', token });
   } catch (err) {
@@ -30,10 +35,5 @@ const LoginController = async (req, res) => {
   }
 };
 
-function generateSecretKey() {
-  return crypto.randomBytes(64).toString('hex');
-  }
-  
-const secretKey = generateSecretKey();
 
-export { LoginController, secretKey };
+export { LoginController };

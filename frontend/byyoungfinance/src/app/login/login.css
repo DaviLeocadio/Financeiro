@@ -14,7 +14,7 @@ body {
     background-color: var(--pallete-color-6);
 }
 
-.container {
+.login {
     background-color: var(--pallete-color-7);
     height: 80vh;
     box-shadow: -2px 2px 9px -1px rgba(151, 148, 148, 0.74);
@@ -27,6 +27,11 @@ body {
     border: solid 2px var(--pallete-color-2);
     height: 7vh;
     color: var(--pallete-color-1);
+}
+
+.input-infos:focus-visible {
+    border:  var(--pallete-color-8) solid;
+    box-shadow: none;
 }
 
 .row p {
@@ -42,12 +47,20 @@ body {
 }
 
 .button-cadastro {
-    background-color: var(--pallete-color-2);
+    background-color: var(--pallete-color-3);
     height: 7vh;
     color: var(--pallete-color-7);
     font-weight: 700;
     border: none;
+    box-shadow: inset 0 0 0 0 var(--azul-escuro1);
+    transition: ease-out 0.5s;
 }
+
+.button-cadastro:hover {
+    box-shadow: inset 600px 0 0 0 var(--azul-escuro3);
+}
+
+
 
 .img-login {
     height: 75vh;

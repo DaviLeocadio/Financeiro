@@ -81,7 +81,7 @@ export default function Funcionamento() {
   const testimonials = [
     {
       name: "Alexa Rodriguez",
-      text: "Organizar meus gastos mensais com essa plataforma mudou minha relação com o dinheiro.",
+      text: "Organizar meus gastos mensais com essa plataforma incrível mudou minha relação com o dinheiro.",
       img: "PessoaUm.svg",
     },
     {
@@ -91,7 +91,7 @@ export default function Funcionamento() {
     },
     {
       name: "James Johnson",
-      text: "Ter controle financeiro ficou simples. Eu e minha família passamos a planejar melhor nossos sonhose.",
+      text: "Ter controle financeiro ficou simples. Eu e minha família passamos a planejar melhor nossos sonhos. Plataforma excelente!",
       img: "PessoaDois.svg",
     },
   ];
@@ -200,7 +200,8 @@ export default function Funcionamento() {
                 <p style={{ color: "#333", minHeight: "60px" }}>{card.cargo}</p>
 
                 <button
-                  className="btn btn-primary rounded-pill"
+                  className="btn rounded-pill"
+                  style={{backgroundColor:"#ffcc00", color:"#fff"}}
                   onClick={(e) => {
                     e.stopPropagation();
                     handleShow(card);
@@ -323,7 +324,7 @@ export default function Funcionamento() {
           </h2>
         </div>
 
-        <div className="row g-4">
+        <div className="row g-4 mt-5">
           {principios.map((principio, idx) => (
             <div key={idx} className="col-12 col-md-4">
               <div className="flip-card" onClick={() => virarCard(idx)}>

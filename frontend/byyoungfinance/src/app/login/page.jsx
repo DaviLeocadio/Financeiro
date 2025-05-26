@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import './login.css';
 import axios from 'axios';
 const API_URL = 'http://localhost:8080';
@@ -14,24 +15,24 @@ export default function Login() {
     nomeLogin = nomeS;
     senhaLogin = senhaS;
     try {
-      const response = await axios.get(`${API_URL}/login`, {
+      const response = await axios.post(`${API_URL}/login`, {
         nome: nomeLogin,
+        email: nomeLogin,
         senha: senhaLogin,
       });
-      console.log(response.data);
       return response.data;
     } catch {
-      console.log(`Erro ao listar jogos: `, error.mesage);
+      console.log(`Erro ao fazer login: `, error.mesage);
       return [];
     }
   }
 
   return (
     <>
-      <div className="container my-5 w-75 p-4 rounded-4 d-flex">
-        <div className="col-md-5 col-12">
+      <div className="container login my-5 w-75 p-4 rounded-4 d-flex">
+        <div className="col-md-5 col-12 ms-md-3">
           <div className="row align-items-center w-100 justify-content-center d-grid">
-            <h1 className="fs-2 fw-bold">Entre na sua conta</h1>
+            <h1 className="fs-2 mt-4 fw-bold">Entre na sua conta</h1>
           </div>
           <div className="row mt-3">
             <p className="fw-bold">Nome ou Email</p>
@@ -51,9 +52,9 @@ export default function Login() {
           </div>
           <div className="row">
             <input type="password" className="input-infos rounded-4" value={senha}
-                onChange={(senha) => {
-                  setSenhaS(senha.target.value);
-                }} />
+              onChange={(senha) => {
+                setSenhaS(senha.target.value);
+              }} />
           </div>
           <div className="row mt-5">
             <button
@@ -68,12 +69,15 @@ export default function Login() {
             <p>ou</p>
           </div>
           <div className="row">
-            <button
-              type="button"
-              className="button-cadastro rounded-4 border-none"
-            >
-              Criar conta
-            </button>
+            <Link href="/cadastro" className="w-100 p-0">
+              <button
+                type="button"
+                className="button-cadastro rounded-4 border-none w-100"
+              >
+                Criar conta
+              </button>
+            </Link>
+
           </div>
         </div>
 
