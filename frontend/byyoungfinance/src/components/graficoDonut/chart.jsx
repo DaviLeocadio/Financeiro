@@ -2,9 +2,7 @@
 import { useRef, useEffect } from "react";
 import { Chart } from "chart.js/auto";
 
-export default function GraficoDonut({
-
-}) {
+export default function GraficoDonut() {
   const chartRef = useRef(null);
 
   useEffect(() => {
@@ -18,11 +16,11 @@ export default function GraficoDonut({
       const newChart = new Chart(context, {
         type: "doughnut",
         data: {
-          labels: "info",
+          labels: ['Oi','ossi','oii'],
           datasets: [
             {
-              label: ["Alimentação", "Saúde", "Lazer"],
-              data: [34, 64, 23],
+              label: "Alimentação",
+              data: [34,70,30],
               backgroundColor: ["#071954", "#ffffff", "#ffcc00"],
               borderColor: "#071954",
               borderWidth: 1,
