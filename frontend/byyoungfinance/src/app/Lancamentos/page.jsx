@@ -11,8 +11,8 @@ export default function Lancamentos() {
     return (
         <div className="container-fluid">
             <div className="row min-vh-100">
-                {/* Sidebar */}
-                <div className="col-12 col-lg-3 nav-usuario text-white p-3" style={{ backgroundColor: '#071954', marginTop:'20px'}}>
+               
+                <div className="col-12 col-lg-3 nav-usuario text-white p-3" style={{ backgroundColor: '#071954', marginTop: '20px' }}>
                     <div className="text-center mb-4">
                         <img src="/logo.svg" alt="logo By young finance" className="img-fluid" />
                     </div>
@@ -23,15 +23,11 @@ export default function Lancamentos() {
                             </button></Link>
                         </li>
                         <li>
-                            <Link href="#"><button className="btn text-white fw-bold text-start w-100" style={{ backgroundColor: '#ffcc00'}}>
+                            <Link href="#"><button className="btn text-white fw-bold text-start w-100" style={{ backgroundColor: '#ffcc00' }}>
                                 <i className="bi bi-star-fill me-2"></i> Lançamentos
                             </button></Link>
                         </li>
-                        <li>
-                            <Link href="#"><button className="btn btn-primary text-start w-100">
-                                <i className="bi bi-wallet2 me-2"></i> Contas
-                            </button></Link>
-                        </li>
+                        
                         <li>
                             <Link href="#"><button className="btn btn-primary text-start w-100">
                                 <i className="bi bi-bell-fill me-2"></i> Notificações
@@ -51,7 +47,7 @@ export default function Lancamentos() {
                 </div>
 
                 {/* Conteúdo principal */}
-                <div className="col-12 col-lg-9 p-4 bg-light rounded-4"style={{marginTop:'20px'}}>
+                <div className="col-12 col-lg-9 p-4 bg-light rounded-4" style={{ marginTop: '20px' }}>
                     <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4" >
                         <h4 className="fw-bold m-0">Lançamentos</h4>
                         <div className="d-flex align-items-center gap-3">
@@ -69,7 +65,7 @@ export default function Lancamentos() {
                         </div>
                     </div>
 
-{/* Formulario */}
+                    {/* Formulario */}
                     {mostrarFormulario && (
                         <div className="formulario-lancamento p-4 mb-4">
                             <h5 className="text-white fw-bold mb-3">Nova Despesa</h5>
@@ -123,9 +119,7 @@ export default function Lancamentos() {
                                         <th>Valor</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    {/* Linhas da tabela aqui */}
-                                </tbody>
+                                
                             </table>
                         </div>
                         <div className="d-flex justify-content-between align-items-center mt-3">
