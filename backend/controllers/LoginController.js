@@ -22,11 +22,17 @@ const LoginController = async (req, res) => {
     }
 
     const token = jwt.sign({ id: usuario.id, nome: usuario.nome }, JWT_SECRET, {
-      expiresIn: '1d',
+      expiresIn: '10s',
     });
 
-    console.log('Token gerado:', token);
-    res.status(200).send(token)
+    if(token){
+      
+    }
+
+    const nome_user = usuario.nome; 
+    const id_user = usuario.id_user;
+
+    res.status(200).json({token:token, nome:nome_user, id:id_user});
   } catch (err) {
     console.error('Erro ao fazer login', err);
     res.status(500).json({ mensagem: 'Erro ao fazer login' });

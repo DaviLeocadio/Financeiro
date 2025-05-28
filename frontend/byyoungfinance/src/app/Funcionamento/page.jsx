@@ -539,7 +539,8 @@ export default function Funcionamento() {
               <div className="d-grid">
                 <button
                   type="submit"
-                  className="btn btn-primary rounded-pill fw-semibold"
+                  className="btn rounded-pill fw-semibold"
+                  style={{backgroundColor:'#ffcc00', color:'#fff'}}
                 >
                   Enviar mensagem
                 </button>

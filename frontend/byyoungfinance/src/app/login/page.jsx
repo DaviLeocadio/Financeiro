@@ -28,10 +28,14 @@ export default function Login() {
           senha: senhaLogin,
         });
 
-        localStorage.setItem('token', JSON.stringify(response.data));
 
+        localStorage.setItem('token', JSON.stringify(response.data['token']));
+        localStorage.setItem('nome', JSON.stringify(response.data['nome']));
+        localStorage.setItem('id', JSON.stringify(response.data['id']));
+
+        console.log(response.data);
         if (response.data) {
-          window.location.href = '/funcionamento';
+          window.location.href = '/geral';
         }
         return response.data;
       } catch {
@@ -46,7 +50,7 @@ export default function Login() {
       <div className="container login my-5 w-75 p-4 rounded-4 d-flex">
         <div className="col-md-5 col-12 ms-md-3">
           <div className="row align-items-center w-100 justify-content-center d-grid">
-            <h1 className="fs-2 mt-4 fw-bold">Entre na sua conta</h1>
+            <h1 className="fs-2 mt-1 fw-bold">Entre na conta</h1>
           </div>
           <div className="row mt-3">
             <p className="fw-bold">Nome ou Email</p>
@@ -55,6 +59,7 @@ export default function Login() {
             <input
               type="text"
               className="input-infos rounded-4"
+              placeholder='user@gmail.com'
               value={nome}
               onChange={(nome) => {
                 setNomeS(nome.target.value);
@@ -79,7 +84,7 @@ export default function Login() {
               Fazer login
             </button>
           </div>
-          <div className="row d-grid mt-2 align-items-center justify-content-center">
+          <div className="row d-grid mt-md-2 mt-0 align-items-center justify-content-center">
             <p>ou</p>
           </div>
           <div className="row">

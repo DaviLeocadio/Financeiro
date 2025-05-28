@@ -110,7 +110,7 @@ export default function Cadastro() {
           
             <div className="d-flex flex-column align-items-center gap-3 mt-4">
               <button
-                className="button-cadastrar text-white w-100 p-3 rounded-4 d-flex justify-content-center"
+                className="button-cadastrar text-white w-100 p-3 rounded-4 align-items-center d-flex justify-content-center"
                 onClick={CadastrarUsuario}
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
@@ -121,7 +121,7 @@ export default function Cadastro() {
               <p className="m-0">ou</p>
 
               <Link href="/login" className="w-100 text-decoration-none">
-                <button className="button-login w-100 p-3 rounded-4 d-flex justify-content-center">
+                <button className="button-login w-100 rounded-4 d-flex justify-content-center align-items-center">
                   Fazer Login
                 </button>
               </Link>
@@ -151,7 +151,7 @@ export default function Cadastro() {
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
                 {cadastrado === true
-                  ? 'Cadastro realizado com sucesso!'
+                  ? 'Obrigado por se cadastrar!!!'
                   : 'Erro ao se cadastrar'}
               </h1>
               <button
