@@ -1,0 +1,63 @@
+@import url("https://use.typekit.net/yuy5pav.css");
+
+:root {
+  --azul-escuro1: #001955;
+  --azul-escuro2: #172d78;
+  --azul-escuro3: #1f3a93;
+  --amarelo: #ffcc00;
+  --cinza: #dce3f2;
+}
+
+.notificacoes-usuario{
+    color: var(--azul-escuro1);
+}
+
+.div-notificacoes {
+    width: 75%;
+    background-color: #ffffff;
+    color: var(--azul-escuro2);
+  }
+  
+  .div-notificacoes p {
+    font-size: 2.5rem;
+  }
+  .notificacoes table{
+      width: 100%;
+  }
+  
+  td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--azul-escuro3);
+  }
+  
+  th {
+    background-color: var(--amarelo);
+    color: #ffffff;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--azul-escuro3);
+  }
+  
+  tr:hover {
+    background-color: var(--azul-escuro2);
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  .notificacoes tr {
+    margin: 2rem 0rem;
+  }
+  
+  .notificacoes th {
+    font-weight: 600;
+    padding: 1rem;
+    margin: 0rem;
+    text-align: left;
+  }
+  
+  .notificacoes td {
+    padding: 1rem 1rem;
+    text-align: left;
+  }
+  

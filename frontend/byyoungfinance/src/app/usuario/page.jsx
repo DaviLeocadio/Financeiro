@@ -2,54 +2,14 @@
 import "@/app/usuario/usuario.css";
 import Link from "next/link";
 import Grafico from "@/components/chart/chart";
+import NavUsuario from "@/components/nav-usuario/nav-usuario";
 
 export default function Usuario() {
 
   return (
     <>
       <div className="d-flex flex-row gap-4 mt-4">
-        <div className="nav-usuario h-75">
-          <ul className="p-4 d-flex flex-column row-gap-3">
-            <img src="/logo.svg" alt="logo By young finance" />
-            <Link href={"/usuario"}>
-              <button className="ms-3">
-                <li>
-                  <i className="bi bi-pie-chart-fill me-3 fs-4"></i>Visão geral
-                </li>
-              </button>
-            </Link>
-            <Link href={"#"}>
-              <button className="ms-3">
-                <li>
-                  <i className="bi bi-send-fill me-3 fs-4"></i>Lançamentos
-                </li>
-              </button>
-            </Link>
-            <Link href={"#"}>
-              <button className="ms-3">
-                <li>
-                  <i className="bi bi-bell-fill me-3 fs-4"></i>Notificações
-                </li>
-              </button>
-            </Link>
-            <Link href={"/extrato"}>
-              <button className="ms-3">
-                <li>
-                  <i className="bi bi-file-ruled-fill me-3 fs-4"></i>Extrato
-                </li>
-              </button>
-            </Link>
-            <Link href={"#"}>
-              <button className="ms-3">
-                <li>
-                  <i className="bi bi-graph-up-arrow me-3 fs-4"></i>Relatórios
-                </li>
-              </button>
-            </Link>
-          </ul>
-        </div>
-        <div className="flex-collumn d-md-none justify-content-around align-items-center"></div>
-
+        <NavUsuario></NavUsuario>
         <div className="container-usuario gap-4 m-4 w-75 flex-wrap">
           <div className="d-flex gap-3 justify-content-end align-items-center flex-wrap">
             <div
@@ -76,7 +36,7 @@ export default function Usuario() {
           <h1 className="bemvindo-usuario" id="greetings">
             Bem vindo nome usuário
           </h1>
-          <div className="contas d-flex gap-3 mt-4 mb-4">
+          <div className="contas d-flex gap-3 mt-4 mb-4 flex-wrap">
             <div className="div-contas-total d-flex flex-column justify-content-center p-3 rounded-4">
               <h3 className="text-white">
                 <i className="bi bi-wallet pe-3"></i>Total da conta
@@ -93,12 +53,16 @@ export default function Usuario() {
               <h3>Contas a receber</h3>
               <p className="m-0">R$ 130.00</p>
             </div>
-          </div>
-          <div className="graficos">
-            <div className="movimentacoes m-4 mt-5">
-              <Grafico></Grafico>
             </div>
-            <div className="div-notificacoes mt-4 p-3 rounded-4 w-75">
+          </div>
+          </div>
+
+          <div className="container-usuario mb-4">
+            <div className="graficos d-flex flex-column align-items-center container-fluid row-gap-5">
+            <div className="movimentacoes bg-white rounded-4 p-3 mt-4">
+              <Grafico tipoGrafico="bar"></Grafico>
+            </div>
+            <div className="div-notificacoes p-3 rounded-4">
               <p>Painel notificação</p>
               <div className="notificacoes">
                 <table>
@@ -120,12 +84,11 @@ export default function Usuario() {
                     </tr>
                   </tbody>
                 </table>
-                
               </div>
             </div>
           </div>
-        </div>
-      </div>
+          </div>
+          
     </>
   );
 }

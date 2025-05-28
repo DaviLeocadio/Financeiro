@@ -1,7 +1,7 @@
 @import url("https://use.typekit.net/yuy5pav.css");
 
 :root {
-  --azul-escuro1: #071954;
+  --azul-escuro1: #001955;
   --azul-escuro2: #172d78;
   --azul-escuro3: #1f3a93;
   --amarelo: #ffcc00;
@@ -43,6 +43,11 @@ form :focus-visible {
 
 .div-entradas{
   background-color: #ffffff9a;
+  border-radius: 2rem;
+  font-family: "barlow-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.3rem;
 }
 
 .button-entradas{

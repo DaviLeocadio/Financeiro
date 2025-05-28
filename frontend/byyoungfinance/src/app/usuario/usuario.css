@@ -102,10 +102,13 @@ form :focus-visible {
   font-size: 2rem;
 }
 
+
 .div-notificacoes {
+  width: 75%;
   background-color: #ffffff;
   color: var(--azul-escuro2);
 }
+
 .div-notificacoes p {
   font-size: 2.5rem;
 }
@@ -162,5 +165,8 @@ tr:hover {
   td::before {
     content: attr(data-th) ": ";
     font-weight: 600;
+  }
+  .div-notificacoes{
+    width: 100%;
   }
 }
