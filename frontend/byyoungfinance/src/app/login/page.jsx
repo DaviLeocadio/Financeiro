@@ -7,23 +7,37 @@ const API_URL = 'http://localhost:8080';
 
 export default function Login() {
   const [nome, setNome] = useState();
-  const [nomeS, setNomeS] = useState();
+  const [nomeS, setNomeS] = useState('');
   const [senha, setSenha] = useState();
-  const [senhaS, setSenhaS] = useState();
+  const [senhaS, setSenhaS] = useState('');
+
+
 
   async function login(nomeLogin, senhaLogin) {
-    nomeLogin = nomeS;
-    senhaLogin = senhaS;
-    try {
-      const response = await axios.post(`${API_URL}/login`, {
-        nome: nomeLogin,
-        email: nomeLogin,
-        senha: senhaLogin,
-      });
-      return response.data;
-    } catch {
-      console.log(`Erro ao fazer login: `, error.mesage);
-      return [];
+    if (nomeS == "" && senhaS.length == '') {
+      console.log('Preencha todos os campos');
+      localStorage.setItem('token', JSON.stringify([]));
+    } else {
+      
+      nomeLogin = nomeS;
+      senhaLogin = senhaS;
+      try {
+        const response = await axios.post(`${API_URL}/login`, {
+          nome: nomeLogin,
+          email: nomeLogin,
+          senha: senhaLogin,
+        });
+
+        localStorage.setItem('token', JSON.stringify(response.data));
+
+        if (response.data) {
+          window.location.href = '/funcionamento';
+        }
+        return response.data;
+      } catch {
+        console.log(`Erro ao fazer login: `, error.mesage);
+        return [];
+      }
     }
   }
 

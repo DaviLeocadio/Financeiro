@@ -482,14 +482,14 @@ export default function Funcionamento() {
 
       {/* FaleConosco  */}
       <section className="py-5" style={{ backgroundColor: "#f9fbff" }}>
-        <div className="container d-flex flex-column flex-lg-row align-items-center gap-5">
+        <div className="container d-flex flex-column flex-lg-row align-items-center">
           <div className="flex-fill text-center">
             <Image
               src="FotoFaleConosco.svg"
               alt="Entre em contato"
-              width={450}
-              height={450}
-              className="img-fluid"
+              width={500}
+              height={500}
+              className="img-fluid d-none d-md-flex"
             />
           </div>
           <div
