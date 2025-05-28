@@ -1,11 +1,11 @@
 
 import "@/app/usuario/usuario.css";
 import Link from "next/link";
-import Grafico from "@/components/chart/chart";
 import NavUsuario from "@/components/nav-usuario/nav-usuario";
+import GraficoBarras from "@/components/graficoBarras/chartsBarras";
 
 export default function Usuario() {
-
+  
   return (
     <>
       <div className="d-flex flex-row gap-4 mt-4">
@@ -60,7 +60,7 @@ export default function Usuario() {
           <div className="container-usuario mb-4">
             <div className="graficos d-flex flex-column align-items-center container-fluid row-gap-5">
             <div className="movimentacoes bg-white rounded-4 p-3 mt-4">
-              <Grafico tipoGrafico="bar"></Grafico>
+              <GraficoBarras></GraficoBarras>
             </div>
             <div className="div-notificacoes p-3 rounded-4">
               <p>Painel notificação</p>

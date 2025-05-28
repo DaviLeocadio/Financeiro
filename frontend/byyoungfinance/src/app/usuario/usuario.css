@@ -47,6 +47,7 @@
 
 .form-control {
   border: none;
+  box-shadow: none !important;
 }
 form :focus {
   box-shadow: none !important;

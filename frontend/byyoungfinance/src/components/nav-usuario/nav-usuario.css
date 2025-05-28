@@ -8,26 +8,14 @@
   --cinza: #dce3f2;
 }
 
-.index{
-  z-index: 10 !important;
-}
 
-.drop-nav-usuario{
-
-  background-color: var(--azul-escuro1);
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  font-style: bold;
-}
-.div-drop-nav :hover{
-  background-color: var(--azul-escuro1);
-}
 
 .nav-usuario {
   background-color: var(--azul-escuro1);
   width: 20%;
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
+  margin-bottom: 1rem;
 }
 
 .nav-usuario ul {
@@ -51,10 +39,7 @@
   border: none;
   transition: all 0.3s;
 }
-.nav-usuario button.ativo {
-  background-color: var(--amarelo) !important;
-  padding: 10px;
-}
+
 .nav-usuario button:hover {
   background-color: var(--amarelo) !important;
   border-radius: 10rem;
@@ -62,6 +47,21 @@
 
 .div-drop-nav{
   position: absolute;
+}
+
+.index{
+  z-index: 10 !important;
+}
+
+.drop-nav-usuario{
+  border-radius: 0rem 1rem 1rem 0rem;
+  background-color: var(--azul-escuro1);
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  font-style: bold;
+}
+.div-drop-nav :hover{
+  background-color: var(--azul-escuro1);
 }
 
 .div-drop-nav :hover{

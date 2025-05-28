@@ -50,7 +50,22 @@ form :focus-visible {
   font-size: 1.3rem;
 }
 
-.button-entradas{
-  border: var(--azul-escuro2) solid 3px;
-  color: var(--azul-escuro2);
+.div-drop-entradas{
+  background-color: var(--amarelo);
+  width: 10rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.btn-drop-entradas{
+  background-color: var(--amarelo);
+  width: 10rem;
+  border: none;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.btn-entradas{
+  background-color: transparent;
+  border: none;
 }

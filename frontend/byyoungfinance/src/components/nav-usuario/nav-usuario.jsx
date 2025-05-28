@@ -10,6 +10,13 @@ export default function NavUsuario() {
     <>
       <div className="d-none d-sm-block nav-usuario h-75">
         <ul className="p-4 d-flex flex-column row-gap-3">
+        <Link href={"/modal"}>
+            <button className="ms-3">
+              <li>
+                <i className="bi bi-pie-chart-fill me-3 fs-4"></i>modal
+              </li>
+            </button>
+          </Link>
           <Link href={"/usuario"}>
             <button className="ms-3">
               <li>
@@ -38,7 +45,7 @@ export default function NavUsuario() {
               </li>
             </button>
           </Link>
-          <Link href={"#"}>
+          <Link href={"/relatorios"}>
             <button className="ms-3">
               <li>
                 <i className="bi bi-graph-up-arrow me-3 fs-4"></i>Relatórios
@@ -51,11 +58,9 @@ export default function NavUsuario() {
         <div className="div-drop-nav mb-3">
           <button
             onClick={() => setAberto(!aberto)}
-            className="btn drop-nav-usuario text-white w-100 d-flex justify-content-between align-items-center rounded-top-4"
+            className="btn drop-nav-usuario text-white w-100 d-flex justify-content-between align-items-center"
             style={{
-              color: "white",
               padding: "1rem",
-              borderBottomLeftRadius: aberto ? 0 : "1rem",
               borderBottomRightRadius: aberto ? 0 : "1rem",
             }}
           >

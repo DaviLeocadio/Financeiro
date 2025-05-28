@@ -1,9 +1,13 @@
+"use client"
 import Link from "next/link";
 import "@/app/extrato/extrato.css";
-import Grafico from "@/components/chart/chart";
 import NavUsuario from "@/components/nav-usuario/nav-usuario";
+import { useState } from "react";
+import GraficoBarras from "@/components/graficoBarras/chartsBarras";
+import GraficoDonut from "@/components/graficoDonut/chart";
 
 export default function Extrato() {
+  const [aberto, setAberto] = useState(false);
   return (
     <>
       <div className="d-flex flex-row gap-4 mt-4">
@@ -38,7 +42,22 @@ export default function Extrato() {
             </h1>
             
               <div className="div-entradas p-3">
-                  <Grafico tipoGrafico="bar"></Grafico>
+                <button
+                onClick={() => setAberto(!aberto)}
+                className="btn-drop-entradas text-white"
+                style={{
+                  borderBottomLeftRadius: aberto ? 0 : "1rem",
+                  borderBottomRightRadius: aberto ? 0 : "1rem",
+                }}
+                ><p className="m-0 p-2">Movimentação <i className={`bi ${aberto ? "bi-chevron-down" : "bi-chevron-up"}`}></i></p></button>
+                
+                {aberto && (
+                  <div className="div-drop-entradas ps-4 pb-4 align-items-start d-flex flex-column row-gap-3">
+                      <button className="btn-entradas text-white">Entradas</button>
+                      <button className="btn-entradas text-white">Saídas</button>
+                  </div>
+                )}
+                  <GraficoBarras></GraficoBarras>
               </div>
             </div>
           </div>
@@ -46,7 +65,7 @@ export default function Extrato() {
 
           <div className="container d-flex flex-column row-gap-4"> 
           <div className="div-entradas p-3 mb-4">
-            <Grafico></Grafico>
+            <GraficoDonut></GraficoDonut>
           </div>
           </div>
           

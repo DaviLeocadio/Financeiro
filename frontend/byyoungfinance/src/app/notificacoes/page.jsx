@@ -1,6 +1,6 @@
 import "@/app/notificacoes/notificacoes.css"
 import Link from "next/link";
-import Grafico from "@/components/chart/chart";
+import Grafico from "@/components/graficoDonut/chart";
 import NavUsuario from "@/components/nav-usuario/nav-usuario";
 
 export default function Notificacoes(){
@@ -54,6 +54,11 @@ export default function Notificacoes(){
                       <td data-th="Data">16/05/2025</td>
                       <td data-th="Descrição">Energia</td>
                       <td data-th="Tipo">Serviços</td>
+                    </tr>
+                    <tr>
+                      <td data-th="Data">28/05/2025</td>
+                      <td data-th="Descrição">Almoço</td>
+                      <td data-th="Tipo">Alimentação</td>
                     </tr>
                   </tbody>
                 </table>
