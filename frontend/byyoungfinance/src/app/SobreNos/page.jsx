@@ -195,7 +195,7 @@ export default function HomePage() {
       </section>
 
 
-      {/* Sessão Time */}
+      {/* Time */}
       <section className="py-5 bg-light">
         <div className="container text-center">
           <h3 className="fw-bold mb-4">Time By YoungFinance</h3>

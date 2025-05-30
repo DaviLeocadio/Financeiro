@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react"; 
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from "react-bootstrap";
 import './Funcionamento.css'
+
 
 // Importações Swiper para Depoimentos
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -119,7 +122,13 @@ export default function Home() {
     setFormData({ nome: "", email: "", mensagem: "" });
   };
 
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // duração da animação em milissegundos
+      once: true, // anima apenas uma vez
+    });
+  }, []);
+  
   return (
     <>
       {/* Banner */}
@@ -178,6 +187,8 @@ export default function Home() {
               <div
                 key={idx}
                 className="position-relative text-center"
+                data-aos="fade-up"
+                data-aos-delay={idx * 100} // atraso progressivo entre os cards
                 style={{
                   width: "300px",
                   background: "#fff",
@@ -263,7 +274,7 @@ export default function Home() {
       <section className="py-5 bg-white">
         <div className="container d-flex flex-column flex-md-row align-items-center justify-content-between">
           {/* Texto à esquerda */}
-          <div className="text-section mb-4 mb-md-0" style={{ maxWidth: "540px" }}>
+          <div className="text-section mb-4 mb-md-0" style={{ maxWidth: "540px" }} data-aos="fade-right">
             <h6 style={{ color: "#ffcc00", fontWeight: "600", letterSpacing: "1px" }}>
               SERVIÇOS EXCLUSIVOS
             </h6>
@@ -296,7 +307,7 @@ export default function Home() {
           </div>
 
           {/* Imagem à direita */}
-          <div className="image-section text-center">
+          <div className="image-section text-center" data-aos="fade-left">
             <Image
               src="FotoCelular.svg"
               alt="Celular com app financeiro"
