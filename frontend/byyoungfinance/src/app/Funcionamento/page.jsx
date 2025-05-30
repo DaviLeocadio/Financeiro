@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react"; 
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from "react-bootstrap";
 import './Funcionamento.css'
+import Script from 'next/script';
+
 
 
 // Importações Swiper para Depoimentos
@@ -128,9 +130,61 @@ export default function Home() {
       once: true, // anima apenas uma vez
     });
   }, []);
-  
+
+
+
   return (
     <>
+      {/* Importando jQuery */}
+      <Script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        strategy="beforeInteractive"
+      />
+
+      {/* Importando a biblioteca que contém HSGoTo */}
+      <Script
+        src="https://unpkg.com/hs-go-to/dist/hs-go-to.min.js"
+        strategy="beforeInteractive"
+      />
+
+      {/* Inicializando o HSGoTo */}
+      <Script id="hs-go-to-init" strategy="afterInteractive">
+        {`
+          $(document).ready(function () {
+            $('.js-go-to').each(function () {
+              var goTo = new HSGoTo($(this)).init();
+            });
+          });
+        `}
+      </Script>
+
+      {/* Elemento de exemplo com classe js-go-to */}
+      <button
+        className="js-go-to"
+        data-hs-go-to-options='{"offsetTop": 700, "position": {"init": "bottom", "show": "bottom"}, "type": "fixed", "compensationSelector": "#header", "showEffect": "slideInUp", "hideEffect": "slideOutDown"}'
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          width: '50px',
+          height: '50px',
+          borderRadius: '50%',
+          backgroundColor: '#bec3cf',
+          color: '#071954',
+          fontSize: '20px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          zIndex: 9999,
+          border: 'none',
+        }}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        ↑
+      </button>
+
+
       {/* Banner */}
       <div className="carousel slide" style={{ marginTop: '10px' }}>
         <div className="carousel-inner">
@@ -419,10 +473,10 @@ export default function Home() {
       </div>
 
       {/* Seção depoimentos */}
-      <section className="testimonials">
+      <section className="testimonials" >
         <div className="container">
           <h2 className="title">Depoimentos</h2>
-          <p className="subtitle">
+          <p className="subtitle" >
             Veja o que nossos usuários têm a dizer sobre como o controle financeiro transformou suas rotinas.
           </p>
 
@@ -520,7 +574,7 @@ export default function Home() {
 
             <form action="https://formsubmit.co/ormellivitoria@gmail.com" method="POST">
               <input type="hidden" name="_captcha" value="false" />
-              
+
 
               <div className="mb-3">
                 <label className="form-label" htmlFor="nome">Nome</label>

@@ -5,6 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Script from 'next/script';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 
 
@@ -19,8 +23,64 @@ export default function HomePage() {
   ];
 
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // duração da animação em milissegundos
+      once: true, // anima apenas uma vez
+    });
+  }, []);
+
   return (
     <div>
+      {/* Importando jQuery */}
+      <Script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        strategy="beforeInteractive"
+      />
+
+      {/* Importando a biblioteca que contém HSGoTo */}
+      <Script
+        src="https://unpkg.com/hs-go-to/dist/hs-go-to.min.js"
+        strategy="beforeInteractive"
+      />
+
+      {/* Inicializando o HSGoTo */}
+      <Script id="hs-go-to-init" strategy="afterInteractive">
+        {`
+          $(document).ready(function () {
+            $('.js-go-to').each(function () {
+              var goTo = new HSGoTo($(this)).init();
+            });
+          });
+        `}
+      </Script>
+
+      {/* Elemento de exemplo com classe js-go-to */}
+      <button
+        className="js-go-to"
+        data-hs-go-to-options='{"offsetTop": 700, "position": {"init": "bottom", "show": "bottom"}, "type": "fixed", "compensationSelector": "#header", "showEffect": "slideInUp", "hideEffect": "slideOutDown"}'
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          width: '50px',
+          height: '50px',
+          borderRadius: '50%',
+          backgroundColor: '#bec3cf',
+          color: '#071954',
+          fontSize: '20px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          zIndex: 9999,
+          border: 'none',
+        }}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        ↑
+      </button>
+
 
       {/* Inicio */}
       <section className="py-5">
@@ -51,7 +111,7 @@ export default function HomePage() {
                 Ajudamos jovens a dominarem suas finanças de forma leve, com ferramentas inteligentes, visual moderno e metas alcançáveis.
               </p>
 
-              <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-4">
+              <div className="d-flex flex-wrap justify-content-center justify-content-md-start gap-4" >
                 <div className="text-center">
                   <div className="bg-white p-3 rounded-circle shadow-sm mb-2" style={{ width: '70px', height: '70px' }}>
                     <i className="bi bi-person-fill text-primary fs-3"></i>
@@ -66,7 +126,7 @@ export default function HomePage() {
                   <h5 className="mb-0 fw-bold">85%</h5>
                   <small className="text-muted">Metas Alcançadas</small>
                 </div>
-                <div className="text-center">
+                <div className="text-center" >
                   <div className="bg-white p-3 rounded-circle shadow-sm mb-2" style={{ width: '70px', height: '70px' }}>
                     <i className="bi bi-cash-stack text-warning fs-3"></i>
                   </div>
@@ -87,7 +147,7 @@ export default function HomePage() {
           <p className="text-muted mb-5">
             Somos uma plataforma feita por e para jovens que querem entender, organizar e planejar suas finanças com leveza e praticidade. Com recursos simples, gráficos intuitivos e metas personalizadas, ajudamos você a transformar centavos em conquistas.
           </p>
-          <div className="row justify-content-center">
+          <div className="row justify-content-center" data-aos="flip-left">
             <div className="col-6 col-md-3 mb-4">
               <div className="d-flex flex-column align-items-center">
                 <div className="text-white rounded-circle d-flex justify-content-center align-items-center mb-3" style={{ width: '70px', height: '70px', fontSize: '1.5rem', backgroundColor: '#ffcc00' }}>
