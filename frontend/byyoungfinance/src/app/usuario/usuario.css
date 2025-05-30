@@ -1,0 +1,47 @@
+
+.nav-usuario{
+    width: 20%;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.nav-usuario ul{
+    list-style: none;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: bold;
+}
+
+
+.nav-usuario ul li{
+    padding: 10px;
+}
+
+.nav-usuario button {
+    background-color: transparent;
+    border: none;
+}
+.nav-usuario button :focus{
+    background-color: brown !important;
+    padding: 10px;
+}
+
+
+.form-control{
+    
+    border: none;
+}
+.form-control :focus{
+    box-shadow: none !important;
+}
+.form-control :focus-visible{
+    box-shadow: none !important;
+}
+
+.btn :active{
+    border: none;
+}
+
+.movimentacoes{
+    
+}

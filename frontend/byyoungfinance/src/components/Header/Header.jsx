@@ -2,8 +2,23 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
+  const [logado, setLogado] = useState(null);
+  useEffect(() => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        return setLogado(false);
+      } else {
+        return setLogado(true);
+      }
+    } catch (err) {
+      console.error('Usuário sem acesso', err);
+      return[];
+    }
+  },[]);
   return (
     <header
       style={{
@@ -54,7 +69,7 @@ export default function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="#blog" className="nav-link text-uppercase fw-bold small">
+                <Link href="/sobrenos" className="nav-link text-uppercase fw-bold small">
                   Sobre nós
                 </Link>
               </li>
@@ -62,23 +77,29 @@ export default function Header() {
             </ul>
 
             {/* Botões */}
-            <div className="d-flex gap-2 justify-content-center mt-3 mt-md-0">
-              <Link
-                href="/login"
-                className="btn btn-light fw-semibold px-4 py-2 rounded-pill"
-                style={{ color: '#071954' }}
-              >
-                Login
-              </Link>
-              <Link
-                href="/cadastro"
-                className="btn fw-semibold px-4 py-2 rounded-pill text-white"
-                style={{ backgroundColor: '#92b1f4' }} // azul claro, por exemplo
-              >
-                Cadastro
-              </Link>
-
-            </div>
+            {logado === true ? (
+              ''
+            ) : logado === false ? (
+              <div className="d-flex gap-2 justify-content-center mt-3 mt-md-0">
+                <Link
+                  href="/login"
+                  className="btn btn-light fw-semibold px-4 py-2 rounded-pill"
+                  style={{ color: '#071954' }}
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/cadastro"
+                  className="btn fw-semibold px-4 py-2 rounded-pill text-white"
+                  style={{ backgroundColor: '#92b1f4' }} // azul claro, por exemplo
+                >
+                  Cadastro
+                </Link>
+              </div>
+            ) : (
+              ''
+            )}
+           
           </div>
         </nav>
       </div>

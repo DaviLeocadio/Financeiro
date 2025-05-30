@@ -4,4 +4,5 @@ import { FinanceiroController } from '../controllers/FinanceiroController.js';
 
 router.post('/', FinanceiroController);
 
+
 export default router;
