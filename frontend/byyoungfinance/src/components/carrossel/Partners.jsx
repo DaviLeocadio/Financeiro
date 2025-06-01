@@ -1,5 +1,6 @@
 import "./carrossel.css";
 
+ 
 export default function Partners() {
   return (
     <section className="partners-section">
@@ -70,3 +71,4 @@ export default function Partners() {
     </section>
   );
 }
+ 

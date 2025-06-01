@@ -5,6 +5,7 @@ import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 import './funcionamento.css';
+import NavUsuario from "@/components/nav-usuario/nav-usuario";
 
 // Importações Swiper para Depoimentos
 import { Swiper, SwiperSlide } from 'swiper/react';

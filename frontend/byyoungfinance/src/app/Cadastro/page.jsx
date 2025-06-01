@@ -3,11 +3,12 @@ import axios from 'axios';
 import { useState } from 'react';
 import Link from 'next/link';
 import './cadastro.css';
+import Swal from "sweetalert2";
 
 const API_URL = 'http://localhost:8080';
 
 export default function Cadastro() {
- 
+
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -17,7 +18,13 @@ export default function Cadastro() {
 
   async function CadastrarUsuario() {
     if (!nome || !email || !senha || !cpf || !data_nasc) {
-      setCadastrado(false);
+    
+      Swal.fire({
+        title: "Erro!",
+        text: `Não foi possível criar sua conta`,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
       return;
     }
 
@@ -36,6 +43,13 @@ export default function Cadastro() {
       setCpf('');
       setData_nasc('');
       setCadastrado(true);
+
+      Swal.fire({
+        title: "Parabéns!",
+        text: `Sua conta foi criada com sucesso`,
+        icon: "success",
+        confirmButtonText: "OK",
+      });
 
       // Redireciona após 2s
       setTimeout(() => {
@@ -107,13 +121,11 @@ export default function Cadastro() {
               />
             </div>
 
-          
+
             <div className="d-flex flex-column align-items-center gap-3 mt-4">
               <button
                 className="button-cadastrar text-white w-100 p-3 rounded-4 align-items-center d-flex justify-content-center"
                 onClick={CadastrarUsuario}
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
               >
                 <p className="m-0">Criar Conta</p>
               </button>
@@ -134,47 +146,6 @@ export default function Cadastro() {
               src="/cadastro-img.png"
               alt="Imagem ilustrativa do cadastro"
             />
-          </div>
-        </div>
-      </div>
-
-     
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex={-1}
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
-                {cadastrado === true
-                  ? 'Obrigado por se cadastrar!!!'
-                  : 'Erro ao se cadastrar'}
-              </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Fechar"
-              ></button>
-            </div>
-            {cadastrado === false && (
-              <div className="modal-body">
-                Verifique se todos os campos foram preenchidos corretamente.
-              </div>
-            )}
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Fechar
-              </button>
-            </div>
           </div>
         </div>
       </div>

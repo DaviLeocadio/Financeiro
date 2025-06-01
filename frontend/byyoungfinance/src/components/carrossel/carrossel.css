@@ -5,8 +5,7 @@
 .titulo span{
     color: #ffcc00;
 }
-
-
+ 
 .partners-section {
     margin-top: -10px;
     display: grid;
@@ -18,12 +17,14 @@
  
 }
   
+ 
   .partners-section h1 {
     font-size: 3rem;
     padding: 20px;
     margin: 20px 0;
   }
   
+ 
   .slider {
     display: flex;
     justify-content: center;
@@ -40,6 +41,9 @@
     
   }
   
+   
+  
+ 
   .slider-items {
     cursor: pointer;
     display: flex;
@@ -50,6 +54,7 @@
    
   }
   
+ 
   @keyframes scrolling {
     0% {
       transform: translateX(80%);
@@ -66,3 +71,11 @@
    
   }
   
+ 
+  .slider-items img {
+    width: 12%;
+    margin: 20px;
+    margin-bottom: 100px;
+   
+  }
+ 

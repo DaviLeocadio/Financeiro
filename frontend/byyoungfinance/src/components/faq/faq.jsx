@@ -1,21 +1,23 @@
 "use client";
-import React, { useState } from 'react';
-import styles from './faq.module.css'; // Certifique-se de criar e estilizar esse arquivo
+import { useState } from 'react';
+import './faq.css'; 
 
+  
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+ 
   return (
-    <div className={styles.faqItem}>
-      <button onClick={() => setIsOpen(!isOpen)} className={styles.faqQuestion}>
+    <div className={'faqItem'}>
+      <button onClick={() => setIsOpen(!isOpen)} className={'faqQuestion'}>
         {question}
         <span>{isOpen ? '▲' : '▼'}</span>
       </button>
-      {isOpen && <div className={styles.faqAnswer}>{answer}</div>}
+      {isOpen && <div className={'faqAnswer'}>{answer}</div>}
     </div>
   );
 };
 
+ 
 const Faq = () => {
   const faqs = [
     {
@@ -48,13 +50,14 @@ const Faq = () => {
     },
   ];
 
+ 
   return (
-    <div className={styles.faqContainer}>
+    <div className={'faqContainer'}>
       {faqs.map((faq, index) => (
         <FAQItem key={index} question={faq.question} answer={faq.answer} />
       ))}
     </div>
   );
 };
-
 export default Faq;
+

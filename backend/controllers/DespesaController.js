@@ -36,9 +36,10 @@ const VerDespesaController = async (req, res) => {
 
 const DeletarDespesaController = async (req, res) => {
   try {
-    const {id_despesas} = req.body;
+    const id_despesas = req.params.id;
+    console.log(id_despesas);
     await deletarDespesa(id_despesas);
-    res.status(200).json({mensagem:'Livro excluido com sucesso!'});
+    res.status(200).json({mensagem:'Despesa excluido com sucesso!'});
   } catch {
     console.log(req.body)
     res.status(500).json({ mensagem: 'Erro ao deletar despesa' });

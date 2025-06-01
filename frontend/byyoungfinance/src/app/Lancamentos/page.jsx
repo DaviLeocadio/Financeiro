@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './lancamento.css';
 import axios from 'axios';
+import NavUsuario from "@/components/nav-usuario/nav-usuario";
 
 const API_URL = 'http://localhost:8080';
 
@@ -16,8 +17,7 @@ export default function Lancamentos() {
   const [data_pag, setData_pag] = useState('');
   const [despesa, setDespesa] = useState([]);
   const [nomeUser, setNomeUser] = useState('');
-  let count = 0;
-
+  
   useEffect(() => {
     (async () => {
       const verDespesa = await axios.get(`${API_URL}/despesas`);
@@ -45,81 +45,25 @@ export default function Lancamentos() {
     }
   }
 
-  async function DeletarDespesa(id_despesas) {
-    try {
-      const response = await axios.delete(`${API_URL}/despesas/`, {
-        id_despesa: id_despesas
-      });
-      console.log(id_despesas);
+  async function DeletarDespesa(id_despesa) {
+    try{
+      const response = await axios.delete(`${API_URL}/despesas/${id_despesa}`);
+      console.log(response);
       return response.data;
     } catch (err) {
+      console.log(id_despesa);
       console.error('Erro ao enviar deletar despesa', err);
       return [];
     }
   }
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid mt-4">
       <div className="row min-vh-100">
-        <div
-          className="col-12 col-lg-3 nav-usuario text-white p-3"
-          style={{ backgroundColor: '#071954', marginTop: '20px' }}
-        >
-          <div className="text-center mb-4">
-            <img
-              src="/logo.svg"
-              alt="logo By young finance"
-              className="img-fluid"
-            />
-          </div>
-          <ul className="nav flex-column gap-2">
-            <li>
-              <Link href="#">
-                <button className="btn btn-primary text-start w-100">
-                  <i className="bi bi-speedometer2 me-2"></i> Visão geral
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link href="#">
-                <button
-                  className="btn text-white fw-bold text-start w-100"
-                  style={{ backgroundColor: '#ffcc00' }}
-                >
-                  <i className="bi bi-star-fill me-2"></i> Lançamentos
-                </button>
-              </Link>
-            </li>
-
-            <li>
-              <Link href="#">
-                <button className="btn btn-primary text-start w-100">
-                  <i className="bi bi-bell-fill me-2"></i> Notificações
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link href="#">
-                <button className="btn btn-primary text-start w-100">
-                  <i className="bi bi-receipt-cutoff me-2"></i> Extrato
-                </button>
-              </Link>
-            </li>
-            <li>
-              <Link href="#">
-                <button className="btn btn-primary text-start w-100">
-                  <i className="bi bi-graph-up-arrow me-2"></i> Relatórios
-                </button>
-              </Link>
-            </li>
-          </ul>
-        </div>
-
+        {/* Barra lateral */}
+        <NavUsuario></NavUsuario>
         {/* Conteúdo principal */}
-        <div
-          className="col-12 col-lg-8 ms-5 p-4 bg-light rounded-4"
-          style={{ marginTop: '20px' }}
-        >
+        <div className="col-12 col-lg-8 ms-5 p-4 bg-light rounded-4" >
           <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
             <h4 className="fw-bold m-0">Lançamentos</h4>
             <div className="d-flex align-items-center gap-3">
@@ -220,7 +164,7 @@ export default function Lancamentos() {
                   </tr>
                 </thead>
                 {despesa.map((despesa, index) => {
-                  count++;
+              
                   return (
                     <thead key={index} className="gap-5">
                       <tr>
@@ -229,7 +173,7 @@ export default function Lancamentos() {
                         <th>{despesa.categoria}</th>
                         <th>R${despesa.valor}</th>
                         <th>
-                          <button onClick={() => DeletarDespesa({ count })}>
+                          <button onClick={() => DeletarDespesa(despesa.id_despesas)} className='bg-light border-0'>
                             <i className="bi bi-trash3-fill mt-0"></i>
                           </button>
                         </th>

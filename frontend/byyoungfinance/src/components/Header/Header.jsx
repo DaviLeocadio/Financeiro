@@ -73,12 +73,20 @@ export default function Header() {
                   Sobre nós
                 </Link>
               </li>
+              
+
 
             </ul>
 
             {/* Botões */}
             {logado === true ? (
-              ''
+              <li className="nav-item text-decoration-none text-uppercase mt-3 d-flex align-items-center text-light fw-bold ">
+                <Link href="/usuario" className="nav-link text-uppercase d-flex fw-bold small">
+                  <p>Minha Conta</p>
+                  <i className="bi bi-person-fill ms-2 text-uppercase"></i>
+                </Link>
+              </li>
+              
             ) : logado === false ? (
               <div className="d-flex gap-2 justify-content-center mt-3 mt-md-0">
                 <Link
@@ -95,6 +103,7 @@ export default function Header() {
                 >
                   Cadastro
                 </Link>
+                
               </div>
             ) : (
               ''

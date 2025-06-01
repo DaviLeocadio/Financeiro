@@ -1,7 +1,8 @@
+'use client'
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from '@/components/Header/Header';
+import Header from '@/components/Header/header';
 import Footer from '@/components/Footer/footer';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -16,15 +17,12 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "byYoungFinance",
-  description: "Site for students",
-};
+export let label = ["Steam", "Epic", "Lazer","Stardew","esporte"]
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <Header></Header>
         {children}
         <Footer></Footer>

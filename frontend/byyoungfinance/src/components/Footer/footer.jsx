@@ -49,12 +49,6 @@ export default function Footer() {
             <Link href='/login'>
               <p className='cadastro-footer d-none d-lg-block'>Login</p>
             </Link>
-
-            <div className="back-to-top">
-              <a href="#top">
-                Voltar ao topo <i className="bi bi-arrow-up-circle-fill"></i>
-              </a>
-            </div>
           </div>
         </div>
 

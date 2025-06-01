@@ -30,7 +30,7 @@ export default function Login() {
 
 
         localStorage.setItem('token', JSON.stringify(response.data['token']));
-        localStorage.setItem('nome', JSON.stringify(response.data['nome']));
+        localStorage.setItem('nome', ([response.data['nome']]));
         localStorage.setItem('id', JSON.stringify(response.data['id']));
 
         console.log(response.data);

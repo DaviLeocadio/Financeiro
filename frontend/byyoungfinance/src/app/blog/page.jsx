@@ -78,28 +78,40 @@ export default function BlogBanner() {
 
               <div className="mais-lidos">
                 <Link href={`/artigos/${artigoPrincipal.id}`} className="artigo-principal">
-                  <img src={artigoPrincipal.imagem} alt={artigoPrincipal.titulo} />
+                
+                  <img src={artigoPrincipal.imagem} alt={artigoPrincipal.titulo} className='img-fluid' />
                   <h3>{artigoPrincipal.titulo}</h3>
                   <p className="data">
                     <i className="bi bi-calendar"></i> {artigoPrincipal.data}
                   </p>
                   <p>{artigoPrincipal.descricao}</p>
                   <span className="btn-leia-mais">Leia Mais</span>
+           
+                  
                 </Link>
 
                 <div className="artigos-laterais">
+                  <div className="container-fluid">
                   {artigosLaterais.map(artigo => (
-                    <Link key={artigo.id} href={`/artigos/${artigo.id}`} className="artigo-mini">
-                      <img src={artigo.imagem} alt={artigo.titulo} />
-                      <div>
-                        <h4>{artigo.titulo}</h4>
+                    <div className="row mb-5" key={artigo.id}>
+                    <Link  href={`/artigos/${artigo.id}`} className="artigo-mini">
+                    <div className="col-6">
+                      <img src={artigo.imagem} alt={artigo.titulo} className='img-fluid' />
+                    </div>
+                      
+                    <div className="col-6">
+                      <h4>{artigo.titulo}</h4>
                         <p className="data">
                           <i className="bi bi-calendar"></i> {artigo.data}
                         </p>
                         <span className="btn-leia-mais">Leia Mais</span>
-                      </div>
+             
+                    </div>
+                        
                     </Link>
+                    </div>
                   ))}
+                  </div>
                 </div>
               </div>
             </div>
