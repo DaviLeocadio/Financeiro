@@ -5,9 +5,9 @@ import GraficoLinha from "@/components/graficoLinha/chartsLinha";
 
 export default function Relatorios(){
     return (<>
-    <div className="d-flex flex-row gap-4 mt-4">
+    <div className="d-flex gap-3 flex-row mt-4">
         <NavUsuario></NavUsuario>
-        <div className="container-usuario gap-4 m-4 w-75 flex-wrap">
+        <div className="container-usuario gap-2 m-4 w-75 flex-wrap">
           <div className="d-flex gap-3 justify-content-end align-items-center flex-wrap">
             <div
               className="search bg-white rounded-pill"
@@ -31,16 +31,28 @@ export default function Relatorios(){
             </div>
             </div>
             
-            <div className="">
+            <div className="d-flex flex-column gap-3">
             <h1 className="relatorios-usuario" id="greetings">
             Relatórios
             </h1>
-            <div>
-              <h2>Entradas</h2>
-            <GraficoLinha></GraficoLinha>
+            <div className="renda d-flex flex-row gap-3">
+            <div className="div-contas p-3 rounded-4">
+            <i className="bi bi-cash-stack"></i>
+              <h3>Minha renda</h3>
+              <p className="m-0">R$ 260.00</p>
+            </div>
+            <div className="div-contas p-3 rounded-4">
+              <i className="bi bi-bank2"></i>
+              <h3>Saldo</h3>
+              <p className="m-0">R$ 260.00</p>
+            </div>
             </div>
             <div>
-              <h2>Saídas</h2>
+              <h2 className="entradas">Entradas</h2>
+            <GraficoLinha></GraficoLinha>
+            </div>
+            <div className="mb-3">
+              <h2 className="entradas">Saídas</h2>
             <GraficoLinha></GraficoLinha>
             </div>
             </div>

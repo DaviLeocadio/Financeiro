@@ -5,12 +5,13 @@ import NavUsuario from "@/components/nav-usuario/nav-usuario";
 import { useState } from "react";
 import GraficoBarras from "@/components/graficoBarras/chartsBarras";
 import GraficoDonut from "@/components/graficoDonut/chart";
-
+import { label } from "../layout";
 
 export default function Extrato() {
   const [aberto, setAberto] = useState(false);
 
   function mudarGraficoEntrada(){
+    let label = ["Steaaam", "teste", "aa","teste","aaa"]
     window.location.reload(false);
   }
 
@@ -76,7 +77,7 @@ export default function Extrato() {
           </div>
 
           <div className="d-flex justify-content-center row-gap-4 m-4"> 
-          <div className="div-entradas div-despesas p-3 mb-4">
+          <div className="div-entradas w-50 p-3 mb-4">
             <GraficoDonut></GraficoDonut>
           </div>
           </div>

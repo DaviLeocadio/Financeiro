@@ -26,7 +26,7 @@ export default function GraficoLinha({
             {
               label: "Detalhes",
               data: [34, 64, 23,70,84],
-              backgroundColor: ["#071954", "#ffffff", "#ffcc00"],
+              backgroundColor: ["#071954","#172d78", "#ffffff", "#ffcc00","#1f3a93"],
               borderColor: "#071954",
               borderWidth: 1,
             },
@@ -54,8 +54,8 @@ export default function GraficoLinha({
         className="container d-flex flex-wrap"
         style={{ position: "relative", minHeight: "20vh", minWidth: "65vw", maxHeight: "100vh", maxWidth:"75vw"}}
       >
-        <canvas ref={chartRef}></canvas>
-
+        <canvas id="graficoDinamicoBarras" ref={chartRef}></canvas>
+       
       </div>
     </>
   );

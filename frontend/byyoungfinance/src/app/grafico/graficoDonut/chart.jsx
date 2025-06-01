@@ -51,8 +51,8 @@ export default function GraficoDonut({ labels = rotulo}) {
   return (
     <>
       <div
-        className="container d-flex flex-wrap p-3"
-        style={{ position: "relative", minHeight: "40vh", minWidth: "70vw", maxHeight: "100vh", maxWidth:"75vw"}}
+        className="container d-flex flex-wrap"
+        style={{ position: "relative", minHeight: "25vh", minWidth: "40vw", maxHeight: "100vh", maxWidth:"75vw"}}
       >
         <canvas ref={chartRef} id="graficoDinamicoBarras"></canvas>
             {/* <div>

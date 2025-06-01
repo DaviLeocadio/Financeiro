@@ -59,7 +59,7 @@ export default function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="#perfil" className="nav-link text-uppercase fw-bold small">
+                <Link href="/usuario" className="nav-link text-uppercase fw-bold small">
                   Meu perfil
                 </Link>
               </li>

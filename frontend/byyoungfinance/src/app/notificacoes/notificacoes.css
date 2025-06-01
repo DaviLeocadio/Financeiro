@@ -61,3 +61,22 @@ tr:hover {
   padding: 1rem 1rem;
   text-align: left;
 }
+
+@media (max-width: 670px) {
+  .table-header {
+    display: none !important;
+  }
+
+  td {
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: 3ch auto;
+  }
+  td::before {
+    content: attr(data-th) ": ";
+    font-weight: 600;
+  }
+  .div-notificacoes{
+    width: 100%;
+  }
+}

@@ -44,14 +44,6 @@
   background-color: var(--amarelo) !important;
   border-radius: 10rem;
 }
-.nav-usuario li:hover {
-  background-color: var(--amarelo) !important;
-  border-radius: 10rem;
-}
-.nav-usuario i:hover {
-  background-color: var(--amarelo) !important;
-  border-radius: 10rem;
-}
 
 .div-drop-nav{
   position: absolute;

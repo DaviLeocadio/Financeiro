@@ -71,14 +71,14 @@ export default function NavUsuario() {
                     </li>
                   </button>
                 </Link>
-                <Link href={"/lancamentos"}>
+                <Link href={"#"}>
                   <button className="ms-3">
                     <li>
                       <i className="bi bi-send-fill me-3 fs-4"></i>Lançamentos
                     </li>
                   </button>
                 </Link>
-                <Link href={"/notificacoes"}>
+                <Link href={"#"}>
                   <button className="ms-3">
                     <li>
                       <i className="bi bi-bell-fill me-3 fs-4"></i>Notificações
@@ -92,7 +92,7 @@ export default function NavUsuario() {
                     </li>
                   </button>
                 </Link>
-                <Link href={"/relatorios"}>
+                <Link href={"#"}>
                   <button className="ms-3">
                     <li>
                       <i className="bi bi-graph-up-arrow me-3 fs-4"></i>

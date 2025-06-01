@@ -50,10 +50,6 @@ form :focus-visible {
   font-size: 1.3rem;
 }
 
-.div-despesas{
-  width: 50%;
-}
-
 .div-drop-entradas{
   background-color: var(--amarelo);
   width: 10rem;
@@ -76,10 +72,4 @@ form :focus-visible {
 
 #mostrarDados{
   color: var(--azul-escuro2);
-}
-
-@media (max-width: 670px) {
-  .div-entradas{
-    width: 100%;
-  }
 }
