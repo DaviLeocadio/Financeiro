@@ -1,0 +1,179 @@
+@import url("https://use.typekit.net/yuy5pav.css");
+
+:root {
+  --azul-escuro1: #001955;
+  --azul-escuro2: #172d78;
+  --azul-escuro3: #1f3a93;
+  --amarelo: #ffcc00;
+  --cinza: #dce3f2;
+  --branco: #ffffff;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 10;
+  display: none;
+}
+
+.escondido {
+  display: none;
+}
+
+.visivel {
+  display: block;
+}
+
+.modal-u {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  background-color: var(--branco) !important;
+  overflow: hidden;
+  width: 45%;
+  height: 85%;
+  overflow-y: scroll;
+}
+
+.fonte {
+  font-family: "barlow-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--azul-escuro2);
+  font-size: 2.3rem;
+}
+
+.modal-u h2 {
+  color: var(--azul-escuro2) !important;
+  font-family: "Crimson Pro", sans-serif;
+  font-weight: 700;
+}
+
+.modal-u p {
+  font-family: "Crimson Pro", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  color: var(--azul-escuro2);
+}
+
+.modal-cover {
+  height: 7rem;
+  width: 100%;
+}
+
+.modal-cover img {
+  height: 7rem;
+  width: 100%;
+}
+
+.modal-top-cover-logo {
+  position: absolute;
+  z-index: 10;
+  top: 3rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 10rem;
+  width: 10rem;
+}
+
+.modal-top-cover-logo img {
+  height: 10rem;
+  width: 10rem;
+}
+
+.modal-u input {
+  background-color: transparent;
+  border: solid var(--azul-escuro2) 2px;
+  padding: 0.5rem;
+  color: var(--azul-escuro2);
+}
+
+.modal-u input:focus-visible {
+  background-color: transparent;
+  border: solid var(--azul-escuro2) 2px;
+  outline: none;
+}
+
+.modal-u input::placeholder {
+  color: var(--azul-escuro2);
+}
+
+.modal-u input::-webkit-outer-spin-button,
+.modal-u input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.dropDown-selecionado {
+  box-shadow: 5px 5px 5px #050e25ac;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  height: 7rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: var(--amarelo);
+  position: absolute;
+  z-index: 10;
+  width: 57%;
+}
+
+.categoria .bi {
+  color: var(--azul-escuro2);
+}
+
+.button-selecionar-categoria {
+  background-color: var(--azul-escuro2);
+  font-family: "Crimson Pro", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.categoria button {
+  border: none;
+  background-color: transparent;
+  color: var(--azul-escuro2);
+  font-weight: 600;
+}
+
+.categoria button:hover {
+  border: none;
+  background-color: var(--branco);
+  color: var(--azul-escuro2);
+  font-weight: 600;
+}
+.categoria button:focus-visible {
+  outline: none;
+  box-shadow: inset 0px 0px 15px var(--azul-escuro3);
+}
+
+.button-fechar-modal {
+  box-shadow: inset 0 0 0 0 var(--amarelo);
+  background-color: transparent;
+  border: var(--azul-escuro2) solid;
+  font-weight: 600;
+  transition: all 0.5s;
+  font-family: "Barlow Condensed", sans-serif;
+  font-style: bold;
+}
+
+.button-fechar-modal:hover {
+  box-shadow: inset 600px 0 0 0 var(--amarelo);
+  color: var(--branco) !important;
+}
+
+.button-modal {
+  background-color: var(--amarelo);
+  color: var(--azul-escuro2);
+  font-weight: 600;
+  font-style: normal;
+  border: none;
+}

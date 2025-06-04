@@ -8,13 +8,6 @@
   --cinza: #dce3f2;
 }
 
-body{
-  font-family: "barlow-condensed", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 1.3rem;
-}
-
 .form-control {
   border: none;
 }
@@ -44,32 +37,39 @@ form :focus-visible {
   font-size: 1.3rem;
 }
 
-.relatorios-usuario{
-    color: var(--azul-escuro2);
-}
-
-.div-contas {
-  border: solid var(--azul-escuro2) 2px;
+.extrato-usuario {
   color: var(--azul-escuro2);
-  width: 14rem;
-  transition: all 0.5s;
 }
 
-.div-contas:hover {
+.div-entradas{
+  background-color: #ffffff9a;
+  border-radius: 2rem;
+  font-family: "barlow-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.3rem;
+}
+
+.div-drop-entradas{
   background-color: var(--amarelo);
-  cursor: pointer;
-}
-.div-contas .bi {
-  font-size: 2rem;
-}
-.div-contas p {
-  font-size: 2rem;
+  width: 10rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
-.relatorios-usuario h2{
-  color: var(--azul-escuro2);
+.btn-drop-entradas{
+  background-color: var(--amarelo);
+  width: 10rem;
+  border: none;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
-.entradas{
+.btn-entradas{
+  background-color: transparent;
+  border: none;
+}
+
+#mostrarDados{
   color: var(--azul-escuro2);
 }

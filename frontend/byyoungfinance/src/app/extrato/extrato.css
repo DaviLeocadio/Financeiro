@@ -57,15 +57,23 @@ form :focus-visible {
   border-bottom-right-radius: 1rem;
 }
 
-.btn-drop-entradas{
-  background-color: var(--amarelo);
-  width: 10rem;
-  border: none;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+#mostrarDados{
+  color: var(--azul-escuro2);
 }
 
-.btn-entradas{
+.btn-tab {
   background-color: transparent;
   border: none;
+  color: #ffcc00; /* cinza para os inativos */
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-tab.active {
+  background-color: white;
+  color: #001955;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

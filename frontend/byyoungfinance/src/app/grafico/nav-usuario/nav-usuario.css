@@ -8,6 +8,8 @@
   --cinza: #dce3f2;
 }
 
+
+
 .nav-usuario {
   background-color: var(--azul-escuro1);
   width: 20%;
@@ -39,14 +41,6 @@
 }
 
 .nav-usuario button:hover {
-  background-color: var(--amarelo) !important;
-  border-radius: 10rem;
-}
-.nav-usuario li:hover {
-  background-color: var(--amarelo) !important;
-  border-radius: 10rem;
-}
-.nav-usuario i:hover {
   background-color: var(--amarelo) !important;
   border-radius: 10rem;
 }

@@ -45,18 +45,24 @@
     border-radius: 10rem;
   }
 
-.form-control {
-  border: none;
+form :focus {
+  outline: none;
   box-shadow: none !important;
 }
-form :focus {
+form :not(:focus) {
+  border: none;
+  outline: none;
   box-shadow: none !important;
 }
 form :focus-visible {
   box-shadow: none !important;
+  border: none;
 }
 
 .btn :active {
+  border: none;
+}
+.btn :not(:focus){
   border: none;
 }
 
