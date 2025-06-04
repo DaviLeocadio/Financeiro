@@ -1,0 +1,125 @@
+"use client"
+import { useState } from "react"
+import "@/components/modal/modal.css"
+import NumberFormat from 'react-number-format'
+
+export default function paginaModal(){
+    const [selecionado, setSelecionado] = useState(false)
+    const [salario, setSalario ] = useState('')
+
+    return(<>
+    <div className="modal-overlay" id="modal-overlay"></div>
+          <div
+            className="modal-u rounded-3" id="modal-u"
+          >
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content d-flex justify-content-center align-items-center">
+                <div className="modal-top-cover text-center position-relative w-100">
+                  <div className="modal-cover">
+                    <img src="/modal-cover.png" alt="" />
+                  </div>
+                </div>
+    
+                <div className="modal-top-cover-logo text-center">
+                  <img
+                    src="/Logo.png"
+                    alt="Logo"
+                  />
+                </div>
+    
+    
+                <div className="modal-body d-flex flex-column gap-3 justify-content-center text-white w-75">
+                  <h2 className="fw-semibold">Vamos começar o seu planejamento!</h2>
+                  <div className="d-flex flex-column gap-3 justify-content-center">
+                    <form action="" className="d-flex flex-column gap-3  w-100">
+                      <div className="entrada-input">
+                        <div className="label-nome"><p className="m-0 fw-semibold fs-4">Qual é o seu salário atual?</p></div>
+                        <NumberFormat
+                        value={salario}
+                        onValueChange={(values) => setSalario(values.floatValue)}
+                          className="w-100 rounded-4"
+                          allowLeadingSeros={false} //permite zero antes do numero
+                          prefix="R$"
+                          decimalScale={2} //casas decimais
+                          fixedDecimalScale={true}
+                          allowNegative={false}
+                          thousandSeparator="."
+                          decimalSeparator=","
+                          allowedDecimalSeparator={['.',',',';']}
+                        />
+                      </div>
+                      <div>
+                        <p className="m-0 fw-semibold fs-4">Qual é o dia de recebimento?</p>
+                        <input className="w-100 rounded-4" type="date" placeholder="Dia de recebimento..." />
+                      </div>
+    
+                      <p className="m-0 fw-semibold fs-4">Quais são as sua despesas mensais?</p>
+                      <div className="d-flex flex-row justify-content-center gap-3 ">
+                        <div className="input-valor-despesa d-flex flex-column align-items-start w-50">
+                          <p className="m-0 fw-semibold fs-4">Valor</p>
+                          <input 
+                          className="w-100 rounded-4"
+                          id="despesas"
+                          type="number"
+                          placeholder="R$00,00" />
+                        </div>
+                        <div className="d-flex flex-column align-items-start">
+                          <p className="m-0 fw-semibold fs-4">Categoria</p>
+                          <div>
+                            <button
+                              className="rounded-4 p-2 border-0"
+                              type="button"
+                              onClick={() => setSelecionado(!selecionado)}
+                            >
+                              Selecionar categoria
+                            </button>
+                            <div
+                              className="dropDown-selecionado"
+                              style={{ display: `${selecionado ? "block" : "none"}`, }}
+                            >
+                              <div className="scroll d-flex flex-column gap-2">
+                              <div className="categoria d-flex flex-row">
+                                <div className="icone"><i className="bi bi-cup-hot-fill"></i></div><button className="rounded-4 pe-1 ps-1">Alimentação</button>
+                              </div>
+                              <div className="categoria d-flex flex-row">
+                                <div className="icone"><i className="bi bi-cart-fill"></i></div><button className="rounded-4 pe-1 ps-1">Compras</button>
+                              </div>
+                              <div className="categoria d-flex flex-row">
+                                <div className="icone"><i className="bi bi-heart-pulse-fill"></i></div><button className="rounded-4 pe-1 ps-1">Saúde</button>
+                              </div>
+                              <div className="categoria d-flex flex-row">
+                                <div className="icone"><i className="bi bi-bus-front-fill"></i></div><button className="rounded-4 pe-1 ps-1">Transporte</button>
+                              </div>
+                              <div className="categoria d-flex flex-row">
+                                <div className="icone"><i className="bi bi-cash-coin"></i></div><button className="rounded-4 pe-1 ps-1">Impostos e taxas</button>
+                              </div>
+                              <div className="categoria d-flex flex-row">
+                                <div className="icone"><i className="bi bi-clipboard2-check-fill"></i></div><button className="rounded-4 pe-1 ps-1">Serviços/assinaturas</button>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+    
+                      </div>
+                    </form>
+                  </div>
+                </div>
+    
+                <div className="modal-footer d-flex flex-row flex-nowrap justify-content-center w-100 gap-2 mt-3 mb-3 p-3">
+                  <button type="button" className="button-modal p-2 rounded-4 w-50 fs-4">
+                    Salvar
+                  </button>
+                  <button
+                    type="button"
+                    className="button-fechar-modal text-white p-2 rounded-4 w-50 fs-4"
+                    onClick={fecharModal}
+                  >
+                    Fechar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </>)
+}

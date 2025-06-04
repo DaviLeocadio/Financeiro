@@ -17,7 +17,7 @@ export default function NavUsuario() {
               </li>
             </button>
           </Link>
-          <Link href={"#"}>
+          <Link href={"/modal"}>
             <button className="ms-3">
               <li>
                 <i className="bi bi-send-fill me-3 fs-4"></i>Lançamentos
