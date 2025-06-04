@@ -8,39 +8,39 @@ export default function NavUsuario() {
   const [aberto, setAberto] = useState(false);
   return (
     <>
-      <div className="d-none d-sm-block nav-usuario h-75">
+      <div className="d-none d-sm-block nav-usuario h-75 me-4 mt-4">
         <ul className="p-4 d-flex flex-column row-gap-3">
-          <Link href={"/usuario"}>
+          <Link href={"/visaoGeral"}>
             <button className="ms-3">
-              <li>
+              <li className="p-2">
                 <i className="bi bi-pie-chart-fill me-3 fs-4"></i>Visão geral
               </li>
             </button>
           </Link>
-          <Link href={"#"}>
+          <Link href={"/lancamentos"}>
             <button className="ms-3">
-              <li>
+              <li className="p-2">
                 <i className="bi bi-send-fill me-3 fs-4"></i>Lançamentos
               </li>
             </button>
           </Link>
           <Link href={"/notificacoes"}>
             <button className="ms-3">
-              <li>
+              <li className="p-2">
                 <i className="bi bi-bell-fill me-3 fs-4"></i>Notificações
               </li>
             </button>
           </Link>
           <Link href={"/extrato"}>
             <button className="ms-3">
-              <li>
+              <li className="p-2">
                 <i className="bi bi-file-ruled-fill me-3 fs-4"></i>Extrato
               </li>
             </button>
           </Link>
           <Link href={"/relatorios"}>
             <button className="ms-3">
-              <li>
+              <li className="p-2">
                 <i className="bi bi-graph-up-arrow me-3 fs-4"></i>Relatórios
               </li>
             </button>
@@ -64,7 +64,7 @@ export default function NavUsuario() {
             <div className="d-flex flex-column text-white p-4 w-100 nav-usuario"
             style={{ borderTopRightRadius: "0rem"}}>
               <ul className="p-4 d-flex flex-column row-gap-3">
-                <Link href={"/usuario"}>
+                <Link href={"/visaoGeral"}>
                   <button className="ms-3">
                     <li>
                       <i className="bi bi-pie-chart-fill me-3 fs-4"></i>Visão Geral

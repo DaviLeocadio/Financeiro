@@ -8,6 +8,11 @@
   --cinza: #dce3f2;
 }
 
+.link{
+  text-decoration: none !important;
+  color: var(--azul-escuro2);
+}
+
 .form-control {
   border: none;
 }
@@ -25,7 +30,6 @@ form :focus-visible {
 .div-usuario {
   color: var(--azul-escuro2);
 }
-
 .div-usuario .bi-person-circle {
   font-size: 3rem;
 }
@@ -76,4 +80,19 @@ form :focus-visible {
   color: #001955;
   font-weight: 600;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+form :focus {
+  outline: none;
+  box-shadow: none !important;
+}
+form :not(:focus) {
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+}
+form :focus-visible {
+  box-shadow: none !important;
+  border: none;
 }

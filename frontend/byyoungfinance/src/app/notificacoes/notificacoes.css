@@ -8,9 +8,28 @@
   --cinza: #dce3f2;
 }
 
+.link{
+  text-decoration: none !important;
+  color: var(--azul-escuro2);
+}
+
+.div-usuario {
+  color: var(--azul-escuro2);
+    font-family: "barlow-condensed", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.3rem;
+}
+
+.div-usuario .bi-person-circle {
+  font-size: 3rem;
+}
 
 .notificacoes-usuario {
   color: var(--azul-escuro2);
+  font-family: "barlow-condensed", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .div-notificacoes {
@@ -38,9 +57,13 @@ th {
   padding: 1rem;
   text-align: left;
   border-bottom: 1px solid var(--azul-escuro3);
+  color: var(--azul-escuro2);
+  font-family: "barlow-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
-tr:hover {
+.notificacoes tr:hover {
   background-color: var(--azul-escuro2);
   color: #ffffff;
   cursor: pointer;
@@ -48,6 +71,7 @@ tr:hover {
 
 .notificacoes tr {
   margin: 2rem 0rem;
+  font-size: 1.3rem;
 }
 
 .notificacoes th {
@@ -60,6 +84,20 @@ tr:hover {
 .notificacoes td {
   padding: 1rem 1rem;
   text-align: left;
+}
+
+form :focus {
+  outline: none;
+  box-shadow: none !important;
+}
+form :not(:focus) {
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+}
+form :focus-visible {
+  box-shadow: none !important;
+  border: none;
 }
 
 @media (max-width: 670px) {
@@ -76,7 +114,7 @@ tr:hover {
     content: attr(data-th) ": ";
     font-weight: 600;
   }
-  .div-notificacoes{
+  .div-notificacoes {
     width: 100%;
   }
 }

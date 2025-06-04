@@ -19,7 +19,10 @@ export default function Extrato() {
         <div className="container-usuario gap-4 m-4 w-75 flex-wrap">
           {/* Topo com barra de busca e usuário */}
           <div className="d-flex gap-3 justify-content-end align-items-center flex-wrap">
-            <div className="search bg-white rounded-pill" style={{ height: "fit-content" }}>
+            <div
+              className="search bg-white rounded-pill"
+              style={{ height: "fit-content" }}
+            >
               <form className="d-flex" role="search">
                 <input
                   className="form-control rounded-pill me-2"
@@ -32,33 +35,43 @@ export default function Extrato() {
                 </button>
               </form>
             </div>
-            <div className="div-usuario d-flex align-items-center gap-2 pe-3">
-              <p className="m-0">nome usuário</p>
-              <i className="bi bi-person-circle"></i>
+            <Link href={"/perfil"} className="link">
+            <div className="div-usuario d-flex align-items-center gap-2 pe-3">            
+                  <p className="m-0">nome usuário</p>
+                  <i className="bi bi-person-circle"></i>             
             </div>
+            </Link>
           </div>
 
           {/* Conteúdo principal */}
           <div>
-            <h1 className="extrato-usuario" id="greetings">Extrato</h1>
+            <h1 className="extrato-usuario" id="greetings">
+              Extrato
+            </h1>
 
             <div className="div-entradas p-3">
               {/* Botões das abas */}
-              <div className="d-flex gap-3 p-2 bg-light rounded-pill w-auto">
+              <div className="d-flex gap-3 p-2 bg-light rounded-pill w-auto flex-wrap">
                 <button
-                  className={`btn-tab ${tipoGrafico === "entradas" ? "active" : ""}`}
+                  className={`btn-tab ${
+                    tipoGrafico === "entradas" ? "active" : ""
+                  }`}
                   onClick={() => setTipoGrafico("entradas")}
                 >
                   Entradas
                 </button>
                 <button
-                  className={`btn-tab ${tipoGrafico === "saidas" ? "active" : ""}`}
+                  className={`btn-tab ${
+                    tipoGrafico === "saidas" ? "active" : ""
+                  }`}
                   onClick={() => setTipoGrafico("saidas")}
                 >
                   Saídas
                 </button>
                 <button
-                  className={`btn-tab ${tipoGrafico === "mensal" ? "active" : ""}`}
+                  className={`btn-tab ${
+                    tipoGrafico === "mensal" ? "active" : ""
+                  }`}
                   onClick={() => setTipoGrafico("mensal")}
                 >
                   Mensal
@@ -72,12 +85,28 @@ export default function Extrato() {
                     <div className="flex-grow-1 d-flex justify-content-center">
                       <GraficoDonut />
                     </div>
-                    <div className="bg-light p-3 rounded-3" style={{ minWidth: "260px", maxWidth: "300px", flex: "1" }}>
+                    <div
+                      className="bg-light p-3 rounded-3"
+                      style={{
+                        minWidth: "260px",
+                        maxWidth: "300px",
+                        flex: "1",
+                      }}
+                    >
                       <h5 className="text-secondary mb-3">Resumo</h5>
                       <ul className="list-unstyled lh-lg">
-                        <li><i className="bi bi-cash-stack me-2 text-primary"></i><strong>Total gasto:</strong> R$ 3.250,00</li>
-                        <li><i className="bi bi-pie-chart me-2 text-primary"></i><strong>Categoria destaque:</strong> Alimentação</li>
-                        <li><i className="bi bi-calendar3 me-2 text-primary"></i><strong>Mês:</strong> Maio/2025</li>
+                        <li>
+                          <i className="bi bi-cash-stack me-2 text-primary"></i>
+                          <strong>Total gasto:</strong> R$ 3.250,00
+                        </li>
+                        <li>
+                          <i className="bi bi-pie-chart me-2 text-primary"></i>
+                          <strong>Categoria destaque:</strong> Alimentação
+                        </li>
+                        <li>
+                          <i className="bi bi-calendar3 me-2 text-primary"></i>
+                          <strong>Mês:</strong> Maio/2025
+                        </li>
                       </ul>
                     </div>
                   </div>

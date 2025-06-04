@@ -1,0 +1,23 @@
+
+
+.formulario-lancamento {
+    background-color: #071954;
+    border-radius: 20px;
+}
+
+.custom-input {
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+}
+
+.custom-input::placeholder {
+    color: #ddd;
+}
+
+.custom-input:focus {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    box-shadow: none;
+}
