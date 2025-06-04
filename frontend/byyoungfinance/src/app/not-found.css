@@ -1,0 +1,42 @@
+.not-found {
+  min-height: 100vh;
+  background-color: #dce3f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.container img{
+  width:"40%";
+}
+
+.subtitle {
+  font-size: 35px;
+  color: #172d78;
+  margin-bottom: 30px;
+  margin-top: 40px;
+  font-weight: 700;
+}
+
+.text {
+  font-size: 15px;
+  max-width: 800px;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.button {
+  padding: 12px 64px;
+  color: #facc15;
+  background-color: #071954;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+}

@@ -6,10 +6,12 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import './lancamento.css';
 import axios from 'axios';
 import NavUsuario from "@/components/nav-usuario/nav-usuario";
+import Swal from "sweetalert2";
 
 const API_URL = 'http://localhost:8080';
 
 export default function Lancamentos() {
+  const [nome, setNome] = useState('');
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [categoria, setCategoria] = useState('');
   const [descricao, setDescricao] = useState('');
@@ -17,7 +19,15 @@ export default function Lancamentos() {
   const [data_pag, setData_pag] = useState('');
   const [despesa, setDespesa] = useState([]);
   const [nomeUser, setNomeUser] = useState('');
-  
+
+  useEffect(() => {
+    setNome(localStorage.getItem('nome'));
+    if (!localStorage.getItem('token') || !localStorage.getItem('nome')) {
+      window.location.href = '/not-auth';
+      return;
+    }
+  }, []);
+
   useEffect(() => {
     (async () => {
       const verDespesa = await axios.get(`${API_URL}/despesas`);
@@ -46,9 +56,17 @@ export default function Lancamentos() {
   }
 
   async function DeletarDespesa(id_despesa) {
-    try{
+    try {
       const response = await axios.delete(`${API_URL}/despesas/${id_despesa}`);
       console.log(response);
+      Swal.fire({
+        title: "Despesa Deletada!",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 2000);
       return response.data;
     } catch (err) {
       console.log(id_despesa);
@@ -126,10 +144,6 @@ export default function Lancamentos() {
                     onChange={(e) => setCategoria(e.target.value)}
                   />
                 </div>
-                <div className="mb-4">
-                  <label className="form-label text-white">Anexo</label>
-                  <input type="file" className="form-control custom-input" />
-                </div>
                 <div className="d-flex justify-content-between">
                   <button
                     type="button"
@@ -164,7 +178,7 @@ export default function Lancamentos() {
                   </tr>
                 </thead>
                 {despesa.map((despesa, index) => {
-              
+
                   return (
                     <thead key={index} className="gap-5">
                       <tr>

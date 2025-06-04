@@ -5,7 +5,6 @@ import Image from 'next/image';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button } from 'react-bootstrap';
 import './funcionamento.css';
-import NavUsuario from "@/components/nav-usuario/nav-usuario";
 
 // Importações Swiper para Depoimentos
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -128,7 +127,7 @@ export default function Funcionamento() {
   return (
     <>
       {/* Banner */}
-      <div className="carousel slide" style={{ marginTop: '10px' }}>
+      <div className="carousel slide banner-mt">
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img
@@ -143,26 +142,12 @@ export default function Funcionamento() {
       {/* Sobre */}
       <section className="container py-5" id="sobre-nos">
         <div className="d-flex align-items-center justify-content-center mb-4">
-          <div
-            style={{
-              width: '8px',
-              height: '40px',
-              backgroundColor: '#ffcc00',
-              borderRadius: '10px',
-              marginRight: '10px',
-            }}
-          ></div>
-          <h2
-            className="fw-bold m-0"
-            style={{ fontSize: '28px', color: '#1e3a8a' }}
-          >
+          <div className="section-title-bar-yellow"></div>
+          <h2 className="fw-bold m-0 section-title">
             Controle sua vida financeira com leveza e segurança
           </h2>
         </div>
-        <p
-          className="text-muted text-center mx-auto"
-          style={{ maxWidth: '700px' }}
-        >
+        <p className="text-muted text-center mx-auto sobre-text">
           Esqueça planilhas complicadas e aplicativos confusos. Nossa plataforma
           oferece uma experiência moderna, acessível e prática para que você
           assuma o controle do seu dinheiro com tranquilidade e confiança.
@@ -170,23 +155,12 @@ export default function Funcionamento() {
       </section>
 
       {/* Seção Objetivos com modal */}
-      <div className="py-5" style={{ backgroundColor: '#dce3f2' }}>
+      <div className="objetivos-section">
         <div className="container text-center">
           <div className="d-flex align-items-center justify-content-center mb-5">
-            <div
-              style={{
-                width: '8px',
-                height: '40px',
-                backgroundColor: '#1e3a8a',
-                borderRadius: '10px',
-                marginRight: '10px',
-              }}
-            />
-            <h2
-              className="m-0 fw-bold"
-              style={{ fontSize: '28px', color: '#1e3a8a' }}
-            >
-              OBJETIVOS DA <span style={{ color: '#000' }}>ByYOUNGFINANCE</span>
+            <div className="section-title-bar-blue"></div>
+            <h2 className="m-0 fw-bold section-title">
+              OBJETIVOS DA <span className="text-black">ByYOUNGFINANCE</span>
             </h2>
           </div>
 
@@ -194,36 +168,16 @@ export default function Funcionamento() {
             {cards.map((card, idx) => (
               <div
                 key={idx}
-                className="position-relative text-center"
-                style={{
-                  width: '300px',
-                  background: '#fff',
-                  borderRadius: '20px',
-                  padding: '20px',
-                  cursor: 'pointer',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  boxShadow: 'none',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-10px)';
-                  e.currentTarget.style.boxShadow =
-                    '0 10px 20px rgba(0,0,0,0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
+                className="objetivo-card"
                 onClick={() => handleShow(card)}
               >
-                <h5 className="mt-3 mb-1 fw-bold" style={{ color: '#1e3a8a' }}>
+                <h5 className="mt-3 mb-1 fw-bold objetivo-card-title">
                   {card.nome}
                 </h5>
-                <p style={{ color: '#333', minHeight: '60px' }}>{card.cargo}</p>
-
+                <p className="objetivo-card-desc">{card.cargo}</p>
                 <button
-                  style={{ backgroundColor: '#ffcc00', color: '#fff' }}
-                  className="btn rounded-pill"
-                  onClick={(e) => {
+                  className="btn rounded-pill objetivo-card-btn"
+                  onClick={e => {
                     e.stopPropagation();
                     handleShow(card);
                   }}
@@ -238,16 +192,16 @@ export default function Funcionamento() {
         <Modal show={show} onHide={handleClose} centered>
           {cardSelecionado && (
             <>
-              <Modal.Header closeButton style={{ backgroundColor: '#1f3a93' }}>
+              <Modal.Header closeButton className="modal-header-custom">
                 <Modal.Title className="text-white">
                   {cardSelecionado.nome}
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <p style={{ color: '#333' }}>{cardSelecionado.detalhes}</p>
+                <p className="objetivo-modal-desc">{cardSelecionado.detalhes}</p>
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose} style={{backgroundColor:'#ffcc00', color:'#fff'}}>
+                <Button variant="secondary" onClick={handleClose} className="objetivo-modal-btn">
                   Fechar
                 </Button>
               </Modal.Footer>
@@ -256,51 +210,18 @@ export default function Funcionamento() {
         </Modal>
       </div>
 
-      {/* Modal */}
-      <Modal show={show} onHide={handleClose} centered>
-        {cardSelecionado && (
-          <>
-            <Modal.Header closeButton style={{ backgroundColor: '#1f3a93' }}>
-              <Modal.Title className="text-white">
-                {cardSelecionado.nome}
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body className="text-center">
-              <p className="text-dark">{cardSelecionado.detalhes}</p>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose} style={{backgroundColor:'#ffcc00'}}>
-                Fechar
-              </Button>
-            </Modal.Footer>
-          </>
-        )}
-      </Modal>
+      {/* Modal duplicado removido */}
 
       {/* Finance Section */}
       <section className="py-5 bg-white">
         <div className="container d-flex flex-column flex-md-row align-items-center justify-content-between">
           {/* Texto à esquerda */}
-          <div
-            className="text-section mb-4 mb-md-0"
-            style={{ maxWidth: '540px' }}
-          >
-            <h6
-              style={{
-                color: '#ffcc00',
-                fontWeight: '600',
-                letterSpacing: '1px',
-              }}
-            >
-              SERVIÇOS EXCLUSIVOS
-            </h6>
-            <h2
-              className="fw-bold"
-              style={{ fontSize: '32px', color: '#071954' }}
-            >
+          <div className="text-section mb-4 mb-md-0">
+            <h6 className="finance-highlight">SERVIÇOS EXCLUSIVOS</h6>
+            <h2 className="fw-bold finance-title">
               Gerencie suas finanças sem sair de casa
             </h2>
-            <p className="text-muted mt-2 mb-4" style={{ fontSize: '1rem' }}>
+            <p className="text-muted mt-2 mb-4 finance-desc">
               Veja como você pode cuidar das suas finanças: fácil de usar,
               seguro, rápido e no conforto do seu lar.
             </p>
@@ -343,19 +264,8 @@ export default function Funcionamento() {
       {/* Principios Section */}
       <div className="container my-5">
         <div className="d-flex align-items-center justify-content-center mb-3">
-          <div
-            style={{
-              width: '8px',
-              height: '40px',
-              backgroundColor: '#ffcc00',
-              borderRadius: '10px',
-              marginRight: '10px',
-            }}
-          ></div>
-          <h2
-            className="fw-bold m-0"
-            style={{ fontSize: '28px', color: '#1e3a8a' }}
-          >
+          <div className="section-title-bar-yellow"></div>
+          <h2 className="fw-bold m-0 section-title">
             Nossa missão, visão e valores são mais do que palavras
           </h2>
         </div>
@@ -371,7 +281,9 @@ export default function Funcionamento() {
                 >
                   <div
                     className="flip-card-front"
-                    style={{ backgroundColor: principio.fundo }}
+                    style={{
+                      backgroundColor: principio.fundo,
+                    }}
                   >
                     <Image
                       src={principio.imagem}
@@ -401,48 +313,6 @@ export default function Funcionamento() {
             </div>
           ))}
         </div>
-
-        {/* Estilos do Flip Card */}
-        <style jsx>{`
-          .flip-card {
-            width: 100%;
-            height: 280px;
-            perspective: 1000px;
-            cursor: pointer;
-          }
-
-          .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-          }
-
-          .flip-card-front,
-          .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-radius: 20px;
-            padding: 1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-          }
-
-          .flip-card-back {
-            transform: rotateY(180deg);
-          }
-
-          .flip-card-inner.is-flipped {
-            transform: rotateY(180deg);
-          }
-        `}</style>
       </div>
 
       {/* Seção depoimentos */}
@@ -482,50 +352,10 @@ export default function Funcionamento() {
             ))}
           </Swiper>
         </div>
-
-        <style jsx>{`
-          .testimonials {
-            padding: 60px 20px;
-            background: #071954;
-            color: white;
-            text-align: center;
-          }
-
-          .testimonials .title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 10px;
-          }
-
-          .testimonials .subtitle {
-            font-size: 16px;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-          }
-
-          .testimonial-card {
-            background: white;
-            color: #333;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-            text-align: left;
-          }
-
-          .testimonial-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-          }
-        `}</style>
       </section>
 
       {/* FaleConosco  */}
-      <section className="py-5" style={{ backgroundColor: '#f9fbff' }}>
+      <section className="py-5 fale-section">
         <div className="container d-flex flex-column flex-lg-row align-items-center">
           <div className="flex-fill text-center">
             <Image
@@ -536,19 +366,8 @@ export default function Funcionamento() {
               className="img-fluid d-none d-md-flex"
             />
           </div>
-          <div
-            className="flex-fill p-5 rounded shadow-sm"
-            style={{
-              backgroundColor: '#ffffff',
-              minWidth: '350px',
-              maxWidth: '600px',
-              width: '100%',
-            }}
-          >
-            <h2
-              className="fw-bold mb-4 text-center"
-              style={{ color: '#1e3a8a' }}
-            >
+          <div className="flex-fill fale-form-container">
+            <h2 className="fw-bold mb-4 text-center fale-title">
               Fale Conosco
             </h2>
 
@@ -600,8 +419,7 @@ export default function Funcionamento() {
               <div className="d-grid">
                 <button
                   type="submit"
-                  className="btn rounded-pill fw-semibold"
-                  style={{ backgroundColor: '#ffcc00', color: '#fff' }}
+                  className="btn rounded-pill fw-semibold fale-btn"
                 >
                   Enviar mensagem
                 </button>

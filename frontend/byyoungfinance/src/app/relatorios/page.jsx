@@ -9,12 +9,10 @@ export default function Relatorios(){
   const [nome, setNome] = useState();
     useEffect(() => {
       setNome(localStorage.getItem('nome'));
-  
-      if (!localStorage.getItem('token')) {
-        console.log('erro');
-      } else {
-        console.log(nome);
-      }
+      if (!localStorage.getItem('token') || !localStorage.getItem('nome')) {
+        window.location.href = '/not-auth';
+        return;
+      } 
     }, []);
     return (<>
     <div className="d-flex gap-3 flex-row mt-4">

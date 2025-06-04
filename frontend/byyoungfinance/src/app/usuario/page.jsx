@@ -1,6 +1,5 @@
 'use client';
 import "@/app/usuario/usuario.css";
-import Link from "next/link";
 import NavUsuario from "@/components/nav-usuario/nav-usuario";
 import GraficoBarras from "@/components/graficoBarras/chartsBarras";
 import { useEffect, useState } from "react";
@@ -9,12 +8,10 @@ export default function Usuario() {
   const [nome, setNome] = useState('');
     useEffect(() => {
       setNome(localStorage.getItem('nome'));
-  
-      if (!localStorage.getItem('token')) {
-        console.log('erro');
-      } else {
-        console.log(nome);
-      }
+      if (!localStorage.getItem('token') || !localStorage.getItem('nome')) {
+        window.location.href = '/not-auth';
+        return;
+      } 
     }, []);
   return (
     <>

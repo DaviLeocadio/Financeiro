@@ -4,6 +4,7 @@ import Link from 'next/link';
 import './login.css';
 import axios from 'axios';
 const API_URL = 'http://localhost:8080';
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [nome, setNome] = useState();
@@ -14,36 +15,54 @@ export default function Login() {
 
 
   async function login(nomeLogin, senhaLogin) {
-    if (nomeS == "" && senhaS.length == '') {
-      console.log('Preencha todos os campos');
-      localStorage.setItem('token', JSON.stringify([]));
-    } else {
-      
-      nomeLogin = nomeS;
-      senhaLogin = senhaS;
-      try {
-        const response = await axios.post(`${API_URL}/login`, {
-          nome: nomeLogin,
-          email: nomeLogin,
-          senha: senhaLogin,
+    if (nomeS == "" || senhaS == '') {
+      Swal.fire({
+        title: "Erro!",
+        text: `Preencha todos os campos`,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      localStorage.setItem('token', JSON.stringify());
+      return [];
+    }
+
+    nomeLogin = nomeS;
+    senhaLogin = senhaS;
+    try {
+      const response = await axios.post(`${API_URL}/login`, {
+        nome: nomeLogin,
+        email: nomeLogin,
+        senha: senhaLogin,
+      });
+
+      if (response.data['senha'] == 'null' || response.data['nome'] == 'null' || response.data['email'] == 'null') {
+        console.log(`Senha ou nome incorretos`);
+        setSenhaS('');
+        Swal.fire({
+          title: "Erro!",
+          text: `Senha ou nome incorretos`,
+          icon: "error",
+          confirmButtonText: "OK",
         });
-
-
-        localStorage.setItem('token', JSON.stringify(response.data['token']));
-        localStorage.setItem('nome', ([response.data['nome']]));
-        localStorage.setItem('id', JSON.stringify(response.data['id']));
-
-        console.log(response.data);
-        if (response.data) {
-          window.location.href = '/geral';
-        }
-        return response.data;
-      } catch {
-        console.log(`Erro ao fazer login: `, error.mesage);
+        localStorage.setItem('token', JSON.stringify());
         return [];
       }
+
+
+      localStorage.setItem('token', JSON.stringify(response.data['token']));
+      localStorage.setItem('nome', ([response.data['nome']]));
+      localStorage.setItem('id', JSON.stringify(response.data['id']));
+
+      if (response.data) {
+        window.location.href = '/usuario';
+      }
+      return response.data;
+    } catch {
+      console.log(`Erro ao fazer login: `, error.mesage);
+      return [];
     }
   }
+
 
   return (
     <>

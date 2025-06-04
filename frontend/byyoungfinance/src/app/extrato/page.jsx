@@ -11,14 +11,12 @@ export default function Extrato() {
   const [aberto, setAberto] = useState(false);
   const [nome, setNome] = useState();
 
-    useEffect(() => {
+   useEffect(() => {
       setNome(localStorage.getItem('nome'));
-  
-      if (!localStorage.getItem('token')) {
-        console.log('erro');
-      } else {
-        console.log(nome);
-      }
+      if (!localStorage.getItem('token') || !localStorage.getItem('nome')) {
+        window.location.href = '/not-auth';
+        return;
+      } 
     }, []);
 
   function mudarGraficoEntrada(){

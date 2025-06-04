@@ -1,4 +1,5 @@
 'use client';
+import './header.css';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,25 +10,18 @@ export default function Header() {
   useEffect(() => {
     try {
       const token = localStorage.getItem('token');
-      if (!token) {
+      if (token == 'undefined' || token == null || token == '') {
         return setLogado(false);
       } else {
         return setLogado(true);
       }
     } catch (err) {
       console.error('Usuário sem acesso', err);
-      return[];
+      return [];
     }
-  },[]);
+  }, []);
   return (
-    <header
-      style={{
-        borderBottomLeftRadius: '3rem',
-        borderBottomRightRadius: '3rem',
-        background: '#071954',
-      }}
-      className="py-2" // diminuiu a altura do header
-    >
+    <header className="py-2 header">
       <div className="container">
         <nav className="navbar navbar-expand-md navbar-dark">
           {/* Logo */}
@@ -73,42 +67,45 @@ export default function Header() {
                   Sobre nós
                 </Link>
               </li>
-              
+              <li className="nav-item">
+                <Link href="/blog" className="nav-link text-uppercase fw-bold small">
+                  Blog
+                </Link>
+              </li>
+
 
 
             </ul>
 
             {/* Botões */}
             {logado === true ? (
-              <li className="nav-item text-decoration-none text-uppercase mt-3 d-flex align-items-center text-light fw-bold ">
+              <li className="nav-item navItemConta text-decoration-none text-uppercase mt-3 d-flex align-items-center text-light fw-bold ">
                 <Link href="/usuario" className="nav-link text-uppercase d-flex fw-bold small">
                   <p>Minha Conta</p>
                   <i className="bi bi-person-fill ms-2 text-uppercase"></i>
                 </Link>
               </li>
-              
+
             ) : logado === false ? (
               <div className="d-flex gap-2 justify-content-center mt-3 mt-md-0">
                 <Link
                   href="/login"
-                  className="btn btn-light fw-semibold px-4 py-2 rounded-pill"
-                  style={{ color: '#071954' }}
+                  className="btn btn-light fw-semibold px-4 py-2 rounded-pill btnLogin"
                 >
                   Login
                 </Link>
                 <Link
                   href="/cadastro"
-                  className="btn fw-semibold px-4 py-2 rounded-pill text-white"
-                  style={{ backgroundColor: '#92b1f4' }} // azul claro, por exemplo
+                  className="btn fw-semibold px-4 py-2 rounded-pill text-white btnCadastro"
                 >
                   Cadastro
                 </Link>
-                
+
               </div>
             ) : (
               ''
             )}
-           
+
           </div>
         </nav>
       </div>
