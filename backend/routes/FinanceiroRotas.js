@@ -1,8 +1,10 @@
 import express from 'express';
 const router = express.Router();
-import { FinanceiroController } from '../controllers/FinanceiroController.js';
+import { CriarFinanceiroController, verFinanceiroController } from '../controllers/FinanceiroController.js';
 
-router.post('/', FinanceiroController);
+
+router.post('/', CriarFinanceiroController);
+router.get('/:id', verFinanceiroController);
 
 
 export default router;

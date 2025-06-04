@@ -10,6 +10,7 @@ export default function NavUsuario() {
     localStorage.removeItem("token");
     localStorage.removeItem("nome");
     localStorage.removeItem("id");
+    localStorage.removeItem("modalExibido")
     window.location.href = "/login";
   }
   return (

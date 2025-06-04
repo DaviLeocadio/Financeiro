@@ -1,4 +1,4 @@
-import { create } from '../config/database.js';
+import { create, read } from '../config/database.js';
 
 const criarFinanceiro = async (financeiroData) => {
   try {
@@ -9,4 +9,13 @@ const criarFinanceiro = async (financeiroData) => {
   }
 };
 
-export { criarFinanceiro };
+const verFinanceiro = async (id)=>{
+  try{
+    return await read('financeiro', `id_user = ${id}`);
+  } catch(err){
+    console.error('Não foi possível ler o financeiro', err);
+    throw err;
+  }
+}
+
+export { criarFinanceiro, verFinanceiro };

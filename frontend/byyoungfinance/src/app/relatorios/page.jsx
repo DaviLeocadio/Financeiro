@@ -46,12 +46,12 @@ export default function Relatorios(){
             Relatórios
             </h1>
             <div className="renda d-flex flex-row gap-3">
-            <div className="div-contas p-3 rounded-4">
+            <div className="div-contas p-3">
             <i className="bi bi-cash-stack"></i>
               <h3>Minha renda</h3>
               <p className="m-0">R$ 260.00</p>
             </div>
-            <div className="div-contas p-3 rounded-4">
+            <div className="div-contas p-3">
               <i className="bi bi-bank2"></i>
               <h3>Saldo</h3>
               <p className="m-0">R$ 260.00</p>
