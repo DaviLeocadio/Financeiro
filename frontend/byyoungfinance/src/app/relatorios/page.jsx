@@ -2,6 +2,7 @@ import "@/app/relatorios/relatorios.css"
 import Link from "next/link";
 import NavUsuario from "@/components/nav-usuario/nav-usuario";
 import GraficoLinha from "@/components/graficoLinha/chartsLinha";
+import CardInfoUser from "@/components/cardInfoUser/infoUser";
 
 export default function Relatorios(){
     return (<>
@@ -36,16 +37,23 @@ export default function Relatorios(){
             Relatórios
             </h1>
             <div className="renda d-flex flex-row gap-3">
-            <div className="div-contas p-3 rounded-4">
-            <i className="bi bi-cash-stack"></i>
-              <h3>Minha renda</h3>
-              <p className="m-0">R$ 260.00</p>
-            </div>
-            <div className="div-contas p-3 rounded-4">
-              <i className="bi bi-bank2"></i>
-              <h3>Saldo</h3>
-              <p className="m-0">R$ 260.00</p>
-            </div>
+            <CardInfoUser
+            classe="div-contas-total d-flex flex-column justify-content-center p-3 rounded-4 text-white"
+            icon="bi bi-wallet pe-3"
+            totalConta="Total da conta"
+            valor="R$ 260.00"
+            ></CardInfoUser>
+            <CardInfoUser
+            icon="bi bi-cash-stack"
+            conteudoCard="Minha Renda"
+            valor="R$ 260.00"
+            ></CardInfoUser>
+            <CardInfoUser
+            icon="bi bi-bank2"
+            conteudoCard="Saldo"
+            valor="R$ 260.00"
+            >
+            </CardInfoUser>
             </div>
             <div>
               <h2 className="entradas">Entradas</h2>
