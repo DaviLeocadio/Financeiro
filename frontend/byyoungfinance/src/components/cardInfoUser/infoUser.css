@@ -12,10 +12,6 @@
   transition: all 0.5s;
 }
 
-.div-contas:hover {
-  background-color: var(--amarelo);
-  cursor: pointer;
-}
 .div-contas .bi {
   font-size: 2rem;
 }

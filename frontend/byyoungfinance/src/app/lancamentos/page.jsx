@@ -20,6 +20,12 @@ export default function Lancamentos() {
                     <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4" >
                         <h4 className="fw-bold m-0">Lançamentos</h4>
                         <div className="d-flex align-items-center gap-3">
+                        <button
+                                className="btn text-white"
+                                style={{ backgroundColor: '#ffcc00' }}
+                            >
+                                Gerar relatório
+                            </button>
                             <button
                                 className="btn text-white"
                                 style={{ backgroundColor: '#ffcc00' }}

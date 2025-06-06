@@ -17,7 +17,7 @@ export default function Extrato() {
       <div className="d-flex flex-row gap-4 mt-4">
         <NavUsuario />
         <div className="container-usuario gap-4 m-4 w-75 flex-wrap">
-          {/* Topo com barra de busca e usuário */}
+          
           <div className="d-flex gap-3 justify-content-end align-items-center flex-wrap">
             <div
               className="search bg-white rounded-pill"
