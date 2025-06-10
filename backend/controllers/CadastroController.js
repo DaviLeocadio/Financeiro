@@ -1,4 +1,4 @@
-import { criarUser } from '../models/Cadastro.js';
+import { criarUser, verUser } from '../models/Cadastro.js';
 import bcrypt from 'bcryptjs';
 
 const CadastroController = async (req, res) => {

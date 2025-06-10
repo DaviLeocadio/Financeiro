@@ -1,4 +1,4 @@
-import { create } from '../config/database.js';
+import { create, read } from '../config/database.js';
 
 const criarUser = async (userData) => {
   try {
@@ -9,4 +9,13 @@ const criarUser = async (userData) => {
   }
 };
 
-export { criarUser };
+const verUser = async(email)=>{
+  try{
+    await readAll('usuario', `email = ${email}`);
+  } catch{
+    console.error('Erro ao ver usuários: ', err);
+    throw err;
+  }
+}
+
+export { criarUser, verUser };

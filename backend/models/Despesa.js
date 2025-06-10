@@ -12,7 +12,6 @@ const criarDespesa = async (despesaData) => {
 const verDespesa = async () => {
   try {
     return await readAll('despesas');
-
   } catch (err) {
     console.error('Erro ao ler despesas: ', err);
   }

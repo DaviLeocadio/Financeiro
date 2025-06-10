@@ -26,8 +26,9 @@ const CriarDespesaController = async (req, res) => {
 
 const VerDespesaController = async (req, res) => {
   try {
-    const despesas = await verDespesa();
-    res.status(200).json(despesas);
+    const despesa = await verDespesa();
+    console.log(despesa);
+    res.status(200).json({despesa});
   } catch (err) {
     console.error('Erro a ver despesas:', err);
     res.status(500).json({ mensagem: 'Erro nas despesas' });

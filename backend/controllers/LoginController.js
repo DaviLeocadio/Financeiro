@@ -7,7 +7,7 @@ const LoginController = async (req, res) => {
   const { nome, senha, email } = req.body;
 
   try {
-    const usuario = await read('usuario', `nome = '${nome}' or email = '${email}'`);
+    const usuario = await read('usuario', `email = '${email}'`);
 
     if (!usuario) {
       console.log('Usuário não encontrado', nome);
@@ -28,7 +28,7 @@ const LoginController = async (req, res) => {
     const nome_user = usuario.nome;
     const id_user = usuario.id_user;
 
-    res.status(200).json({ token: token, nome: nome_user, id: id_user });
+    res.status(200).json({ token: token, nome: nome_user, id: id_user, email: usuario.email, cpf: usuario.cpf, data_nasc: usuario.data_nasc, mensagem: 'Login realizado com sucesso' });
   } catch (err) {
     console.error('Erro ao fazer login', err);
     res.status(500).json({ mensagem: 'Erro ao fazer login' });

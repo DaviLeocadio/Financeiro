@@ -1,0 +1,20 @@
+@import url("https://use.typekit.net/yuy5pav.css");
+
+.div-contas-total {
+  background-color: var(--azul-escuro2);
+  font-size: 2rem;
+  width: 17rem;
+}
+
+.div-contas {
+  border: solid var(--azul-escuro2) 2px;
+  color: var(--azul-escuro2);
+  transition: all 0.5s;
+}
+
+.div-contas .bi {
+  font-size: 2rem;
+}
+.div-contas p {
+  font-size: 2rem;
+}

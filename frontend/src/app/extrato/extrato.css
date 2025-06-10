@@ -1,0 +1,159 @@
+@import url("https://use.typekit.net/yuy5pav.css");
+
+:root {
+  --azul-escuro1: #001955;
+  --azul-escuro2: #172d78;
+  --azul-escuro3: #1f3a93;
+  --amarelo: #ffcc00;
+  --cinza: #dce3f2;
+}
+
+.link{
+  text-decoration: none !important;
+  color: var(--azul-escuro2);
+}
+
+.tabela-movimentacao{
+  background-color: #ffffff;
+  color: var(--azul-escuro2);
+}
+
+.tabela-movimentacao p {
+  font-size: 2.5rem;
+}
+.tabela-movimentacao table{
+    width: 100%;
+}
+
+.tabela-movimentacao td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--azul-escuro3);
+}
+
+.tabela-movimentacao th {
+  background-color: var(--amarelo);
+  color: #ffffff;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--azul-escuro3);
+}
+
+.tabela-movimentacao tr {
+  margin: 2rem 0rem;
+}
+
+.tabela-movimentacao th {
+  font-weight: 600;
+  padding: 1rem;
+  margin: 0rem;
+  text-align: left;
+}
+
+.tabela-movimentacao td {
+  padding: 1rem 1rem;
+  text-align: left;
+}
+
+.form-control {
+  border: none;
+}
+form :focus {
+  box-shadow: none !important;
+}
+form :focus-visible {
+  box-shadow: none !important;
+}
+
+.btn :active {
+  border: none;
+}
+
+.div-usuario {
+  color: var(--azul-escuro2);
+}
+.div-usuario .bi-person-circle {
+  font-size: 3rem;
+}
+
+.container-usuario {
+  font-family: "barlow-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.3rem;
+}
+
+.extrato-usuario {
+  color: var(--azul-escuro2);
+}
+
+.div-entradas{
+  background-color: #ffffff9a;
+  border-radius: 2rem;
+  font-family: "barlow-condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.3rem;
+}
+
+.div-drop-entradas{
+  background-color: var(--amarelo);
+  width: 10rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+#mostrarDados{
+  color: var(--azul-escuro2);
+}
+
+.btn-tab {
+  background-color: transparent;
+  border: none;
+  color: #ffcc00; /* cinza para os inativos */
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  border-radius: 2rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-tab.active {
+  background-color: white;
+  color: #001955;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+form :focus {
+  outline: none;
+  box-shadow: none !important;
+}
+form :not(:focus) {
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+}
+form :focus-visible {
+  box-shadow: none !important;
+  border: none;
+}
+
+@media (max-width: 670px) {
+  .table-header {
+    display: none !important;
+  }
+
+  td {
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: 3ch auto;
+  }
+  td::before {
+    content: attr(data-th) ": ";
+    font-weight: 600;
+  }
+  .tabela-movimentacao{
+    width: 100%;
+  }
+}
