@@ -12,7 +12,7 @@ import axios from "axios";
 const API_URL = "http://localhost:8080";
 
 export default function Extrato() {
-  const [tipoGrafico, setTipoGrafico] = useState("saidas");
+  const [tipoGrafico, setTipoGrafico] = useState("mensal");
   const [nome, setNome] = useState("");
   const [possuiDespesa, setPossuiDespesa] = useState(false);
   const [possuiRecebimento, setPossuiRecebimento] = useState(false);
@@ -138,67 +138,7 @@ export default function Extrato() {
     }, 100)
   }, [despesaGrafico, tipoGrafico]);
 
-  useEffect(() => {
-
-    let label = [
-      "Janeiro",
-      "Fevereiro",
-      "Março",
-      "Abril",
-      "Maio",
-      "Junho",
-      "Julho",
-      "Agosto",
-      "Setembro",
-      "Outubro",
-      "Novembro",
-      "Dezembro",
-    ];
-
-    const labels = label
-
-    const mes = new Date().getMonth() + 1;
-
-
-    const data = [5,4,4,4,4,quantDespesa,4,4,4,4,4,4];
-    if (chartRef.current) {
-      if (chartRef.current.chart) {
-        chartRef.current.chart.destroy();
-      }
-
-      const context = chartRef.current.getContext("2d");
-      console.log('Janeiro: 4 despesas feitas')
-      const newChart = new Chart(context, {
-        type: "bar",
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: "info",
-              data:data,
-              backgroundColor: ["#071954", "#ffffff", "#ffcc00"],
-              borderColor: "#071954",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          scales: {
-            x: {
-              type: "category",
-            },
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
-
-      chartRef.current.chart = newChart;
-    }
-
-  }, []);
+  
 
   return (
     <div className="d-flex flex-row gap-4 mt-4">
@@ -267,12 +207,7 @@ export default function Extrato() {
 
           <div className="div-entradas p-3 d-flex flex-wrap">
             <div className="d-flex gap-3 p-2 bg-light rounded-pill w-auto flex-wrap">
-              <button
-                className={`btn-tab ${tipoGrafico === "saidas" ? "active" : ""}`}
-                onClick={() => setTipoGrafico("saidas")}
-              >
-                Saídas
-              </button>
+
               <button
                 className={`btn-tab ${tipoGrafico === "mensal" ? "active" : ""}`}
                 onClick={() => setTipoGrafico("mensal")}
