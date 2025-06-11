@@ -35,7 +35,7 @@ const verFinanceiroIdController = async (req, res) => {
     if (financeiro) {
       res.json({ dado: financeiro })
     } else {
-      res.status(404).json({ mensagem: 'Dado não encontrado' });
+      res.status(103).json({ mensagem: 'Dado não encontrado' });
     }
   } catch (err) {
     console.error('Erro ao pegar dados do financeiro', err);

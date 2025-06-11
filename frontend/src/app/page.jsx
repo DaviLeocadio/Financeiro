@@ -136,7 +136,7 @@ export default function Home() {
             {/* Imagem da tela */}
             <div className="col-12 col-md-6 mb-4 mb-md-0">
               <img
-                src="/telaHome.jpg"
+                src="/TelaHome.jpg"
                 alt="Imagem principal"
                 className="img-fluid rounded img-pequena"
               />

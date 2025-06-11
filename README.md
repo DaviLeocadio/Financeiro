@@ -20,12 +20,12 @@ Nosso objetivo é democratizar o acesso ao controle financeiro, por meio de solu
 
 ## Como utilizar
 
-1. Acesse a plataforma online pelo navegador de qualquer dispositivo.  
-2. Crie sua conta de forma simples e segura.  
-3. Registre suas receitas e despesas conforme acontecem no dia a dia.  
-4. Acompanhe seus gastos por meio de gráficos e relatórios visuais.  
-5. Aprenda com nossos conteúdos, dicas e atividades de educação financeira.  
-
+1. Instale o projeto para o seu computador;
+2. A partir de um terminal, entre na pasta frontend e digite "npm i"; 
+3. A partir de outro terminal, entre na pasta backend e digite "npm i";   
+4. Em frontend, após a instalação, digite "npm run dev";
+5. Em backend, após a instalação, digite "node app.js";
+6. Aproveite o site.
 
 ## Autores do Projeto
 

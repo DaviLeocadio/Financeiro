@@ -5,6 +5,7 @@ import Link from 'next/link';
 import "./blog.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import json from "../../json/blog";
+import Script from 'next/script';
 
 export default function BlogBanner() {
   const [query, setQuery] = useState('');
@@ -20,6 +21,55 @@ export default function BlogBanner() {
 
   return (
     <>
+
+    <Script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            strategy="beforeInteractive"
+          />
+    
+          {/* Importando a biblioteca que contém HSGoTo */}
+          <Script
+            src="https://unpkg.com/hs-go-to/dist/hs-go-to.min.js"
+            strategy="beforeInteractive"
+          />
+    
+          {/* Inicializando o HSGoTo */}
+          <Script id="hs-go-to-init" strategy="afterInteractive">
+            {`
+              $(document).ready(function () {
+                $('.js-go-to').each(function () {
+                  var goTo = new HSGoTo($(this)).init();
+                });
+              });
+            `}
+          </Script>
+    
+          {/* Elemento de exemplo com classe js-go-to */}
+          <button
+            className="js-go-to"
+            data-hs-go-to-options='{"offsetTop": 700, "position": {"init": "bottom", "show": "bottom"}, "type": "fixed", "compensationSelector": "#header", "showEffect": "slideInUp", "hideEffect": "slideOutDown"}'
+            style={{
+              position: 'fixed',
+              bottom: '20px',
+              right: '20px',
+              width: '50px',
+              height: '50px',
+              borderRadius: '50%',
+              backgroundColor: '#bec3cf',
+              color: '#071954',
+              fontSize: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 9999,
+              border: 'none',
+            }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            ↑
+          </button>
+    
       <section className="banner">
         <div className="banner-content">
           <h1>

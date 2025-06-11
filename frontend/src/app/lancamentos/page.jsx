@@ -115,23 +115,6 @@ export default function Lancamentos() {
         {/* Conteúdo principal */}
         <div className="col-12 col-lg-8 ms-5 p-4 bg-light rounded-4">
           <div className="d-flex gap-3 justify-content-end align-items-center flex-wrap">
-            <div
-              className="search bg-white rounded-pill"
-              style={{ height: "fit-content" }}
-            >
-              <form className="d-flex" role="search">
-                <input
-                  className="form-control rounded-pill me-2"
-                  type="search"
-                  placeholder="Buscar"
-                  aria-label="Search"
-                />
-                <button className="btn btn-pesquisa" type="submit">
-                  <i className="bi bi-search"></i>
-                </button>
-              </form>
-            </div>
-            
               <div className="div-usuario d-flex align-items-center gap-2 pe-3">
                 <p className="m-0 fw-700">{nome}</p>
                 <i className="bi bi-person-circle"></i>

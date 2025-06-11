@@ -14,11 +14,11 @@ import Script from 'next/script';
 export default function HomePage() {
 
   const teamMembers = [
-    { name: 'Jessica Anderson', image: '/integranteUm.png' },
-    { name: 'Matthew Taylor', image: '/integranteDois.png' },
-    { name: 'Amelia Morgan', image: '/integranteTres.png' },
-    { name: 'Jessica Anderson', image: '/integranteQuatro.png' },
-    { name: 'Matthew Taylor', image: '/integranteCinco.png' },
+    { name: 'Vitória Ormelli', image: '/integranteUm.png' },
+    { name: 'Laura Sampaio', image: '/integranteDois.png' },
+    { name: 'Yasmin Alencar', image: '/integranteTres.png' },
+    { name: 'Giovanna Aragão', image: '/integranteQuatro.png' },
+    { name: 'Davi Leocadi', image: '/integranteCinco.png' },
   ];
 
   useEffect(() => {
