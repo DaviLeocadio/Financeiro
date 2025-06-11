@@ -2,8 +2,8 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from '@/components/Header/header';
-import Footer from '@/components/Footer/footer';
+import Header from '@/components/header/header';
+import Footer from '@/components/footer/footer';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/css/bootstrap.css";
 

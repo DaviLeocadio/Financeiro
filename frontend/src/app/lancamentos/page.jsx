@@ -5,9 +5,6 @@ import { useEffect, useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import NavUsuario from "@/components/nav-usuario/nav-usuario";
 import Swal from "sweetalert2";
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
-import Link from "next/link";
 
 const API_URL = "http://localhost:8080";
 
