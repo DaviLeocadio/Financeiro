@@ -408,6 +408,13 @@ tr:hover {
 }
 
 @media (max-width: 670px) {
+  .container-usuario{
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    width: 100%;
+  }
+
   .perfil {
     width: 100%;
   }
